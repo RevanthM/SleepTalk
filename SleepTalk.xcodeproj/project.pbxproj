@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F23AF0DE208D4C8200F7E757 /* AddAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23AF0DD208D4C8200F7E757 /* AddAlarmViewController.swift */; };
 		F23D9DC720891CEF00E3F6BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D9DC620891CEF00E3F6BD /* AppDelegate.swift */; };
 		F23D9DC920891CEF00E3F6BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D9DC820891CEF00E3F6BD /* ViewController.swift */; };
 		F23D9DCC20891CEF00E3F6BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F23D9DCA20891CEF00E3F6BD /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F23AF0DD208D4C8200F7E757 /* AddAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmViewController.swift; sourceTree = "<group>"; };
 		F23D9DC320891CEF00E3F6BD /* SleepTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23D9DC620891CEF00E3F6BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F23D9DC820891CEF00E3F6BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				F23D9DC620891CEF00E3F6BD /* AppDelegate.swift */,
 				F23D9DC820891CEF00E3F6BD /* ViewController.swift */,
 				F23D9DF72089295C00E3F6BD /* NewRecordingViewController.swift */,
+				F23AF0DD208D4C8200F7E757 /* AddAlarmViewController.swift */,
 				F23D9DCA20891CEF00E3F6BD /* Main.storyboard */,
 				F23D9DD020891CEF00E3F6BD /* Assets.xcassets */,
 				F23D9DD220891CEF00E3F6BD /* LaunchScreen.storyboard */,
@@ -264,6 +267,7 @@
 			files = (
 				F23D9DCF20891CEF00E3F6BD /* SleepTalk.xcdatamodeld in Sources */,
 				F23D9DC920891CEF00E3F6BD /* ViewController.swift in Sources */,
+				F23AF0DE208D4C8200F7E757 /* AddAlarmViewController.swift in Sources */,
 				F23D9DF82089295C00E3F6BD /* NewRecordingViewController.swift in Sources */,
 				F23D9DC720891CEF00E3F6BD /* AppDelegate.swift in Sources */,
 			);

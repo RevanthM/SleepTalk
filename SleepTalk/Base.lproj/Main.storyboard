@@ -86,7 +86,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4H0-Gq-vcp"/>
                     </view>
-                    <navigationItem key="navigationItem" id="nMe-RP-iBX"/>
+                    <navigationItem key="navigationItem" id="nMe-RP-iBX">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="vb2-Zy-M3b">
+                            <connections>
+                                <segue destination="doo-EF-KKJ" kind="show" id="Wer-lg-ETU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQX-ew-7a4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

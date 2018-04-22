@@ -36,7 +36,96 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
     
     
   
-    @IBAction func start_recording(_ sender: UIButton) {
+   
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        check_record_permission()
+        
+        
+    }
+    
+    func check_record_permission()
+    {
+        switch AVAudioSession.sharedInstance().recordPermission() {
+        case AVAudioSessionRecordPermission.granted:
+            isAudioRecordingGranted = true
+            break
+        case AVAudioSessionRecordPermission.denied:
+            isAudioRecordingGranted = false
+            break
+        case AVAudioSessionRecordPermission.undetermined:
+            AVAudioSession.sharedInstance().requestRecordPermission() { [unowned self] allowed in
+                DispatchQueue.main.async {
+                    if allowed {
+                        self.isAudioRecordingGranted = true
+                    } else {
+                        self.isAudioRecordingGranted = false
+                    }
+                }
+            }
+            break
+        default:
+            break
+        }
+    }
+
+    //generate path where you want to save that recording as myRecording.m4a
+    
+    func getDocumentsDirectory() -> URL
+    {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
+    }
+    
+    func getFileUrl() -> URL
+    {
+        let filename = "myRecording.m4a"
+        let filePath = getDocumentsDirectory().appendingPathComponent(filename)
+        return filePath
+    }
+   
+    
+    //Setup the recorder
+    
+    func setup_recorder()
+    {
+        if isAudioRecordingGranted
+        {
+            let session = AVAudioSession.sharedInstance()
+            do
+            {
+                try session.setCategory(AVAudioSessionCategoryPlayAndRecord, with: .defaultToSpeaker)
+                try session.setActive(true)
+                let settings = [
+                    AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+                    AVSampleRateKey: 44100,
+                    AVNumberOfChannelsKey: 2,
+                    AVEncoderAudioQualityKey:AVAudioQuality.high.rawValue
+                ]
+                audioRecorder = try AVAudioRecorder(url: getFileUrl(), settings: settings)
+                audioRecorder.delegate = self
+                audioRecorder.isMeteringEnabled = true
+                audioRecorder.prepareToRecord()
+            }
+            catch let error {
+                display_alert(msg_title: "Error", msg_desc: error.localizedDescription, action_title: "OK")
+            }
+        }
+        else
+        {
+            display_alert(msg_title: "Error", msg_desc: "Don't have access to use your microphone.", action_title: "OK")
+        }
+    }
+
+    
+    // Start recording when button start_recording press & display seconds using updateAudioMeter, & if recording is start then finish the recording
+    
+    @IBAction func start_recording(_ sender: UIButton)
+    {
         if(isRecording)
         {
             finishAudioRecording(success: true)
@@ -69,33 +158,38 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
         }
     }
     
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool)
+    func finishAudioRecording(success: Bool)
     {
-        if !flag
+        if success
         {
-            finishAudioRecording(success: false)
+            audioRecorder.stop()
+            audioRecorder = nil
+            meterTimer.invalidate()
+            print("recorded successfully.")
         }
-        play_btn_ref.isEnabled = true
-    }
-    
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
-    {
-        record_btn_ref.isEnabled = true
-    }
-    
-    func display_alert(msg_title : String , msg_desc : String ,action_title : String)
-    {
-        let ac = UIAlertController(title: msg_title, message: msg_desc, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: action_title, style: .default)
+        else
         {
-            (result : UIAlertAction) -> Void in
-            _ = self.navigationController?.popViewController(animated: true)
-        })
-        present(ac, animated: true)
+            display_alert(msg_title: "Error", msg_desc: "Recording failed.", action_title: "OK")
+        }
     }
-
-    @IBAction func play_recording(_ sender: UIButton) {
-        
+    
+    // Play the recording
+    
+    func prepare_play()
+    {
+        do
+        {
+            audioPlayer = try AVAudioPlayer(contentsOf: getFileUrl())
+            audioPlayer.delegate = self
+            audioPlayer.prepareToPlay()
+        }
+        catch{
+            print("Error")
+        }
+    }
+    
+    @IBAction func play_recording(_ sender: Any)
+    {
         if(isPlaying)
         {
             audioPlayer.stop()
@@ -120,125 +214,37 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
         }
     }
     
-    func prepare_play()
+    // When recording is finish enable the play button & when play is finish enable the record button
+    
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool)
     {
-        do
+        if !flag
         {
-            audioPlayer = try AVAudioPlayer(contentsOf: getFileUrl())
-            audioPlayer.delegate = self
-            audioPlayer.prepareToPlay()
+            finishAudioRecording(success: false)
         }
-        catch{
-            print("Error")
-        }
+        play_btn_ref.isEnabled = true
+    }
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
+    {
+        record_btn_ref.isEnabled = true
+    }
+    
+   // Generalize function for display alert
+    
+    func display_alert(msg_title : String , msg_desc : String ,action_title : String)
+    {
+        let ac = UIAlertController(title: msg_title, message: msg_desc, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: action_title, style: .default)
+        {
+            (result : UIAlertAction) -> Void in
+            _ = self.navigationController?.popViewController(animated: true)
+        })
+        present(ac, animated: true)
     }
 
     
     
-    
-    
-    func finishAudioRecording(success: Bool)
-    {
-        if success
-        {
-            audioRecorder.stop()
-            audioRecorder = nil
-            meterTimer.invalidate()
-            print("recorded successfully.")
-        }
-        else
-        {
-            display_alert(msg_title: "Error", msg_desc: "Recording failed.", action_title: "OK")
-        }
-    }
-
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-        check_record_permission()
-        
-        
-    }
-    
-    func check_record_permission()
-        
-    {
-        switch AVAudioSession.sharedInstance().recordPermission() {
-        case AVAudioSessionRecordPermission.granted:
-            isAudioRecordingGranted = true
-            break
-        case AVAudioSessionRecordPermission.denied:
-            isAudioRecordingGranted = false
-            break
-        case AVAudioSessionRecordPermission.undetermined:
-            AVAudioSession.sharedInstance().requestRecordPermission() { [unowned self] allowed in
-                DispatchQueue.main.async {
-                    if allowed {
-                        self.isAudioRecordingGranted = true
-                    } else {
-                        self.isAudioRecordingGranted = false
-                    }
-                }
-            }
-            break
-        default:
-            break
-        }
-    }
-    
-    
-    func getDocumentsDirectory() -> URL
-    {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentsDirectory = paths[0]
-        return documentsDirectory
-    }
-    
-    func getFileUrl() -> URL
-    {
-//        let filename = "myRecording.m4a"
-        // modified so filename is recording name label
-        
-        let filename = audioName
-        
-        let filePath = getDocumentsDirectory().appendingPathComponent(filename)
-        return filePath
-    }
-    
-    func setup_recorder()
-    {
-        if isAudioRecordingGranted
-        {
-            let session = AVAudioSession.sharedInstance()
-            do
-            {
-                try session.setCategory(AVAudioSessionCategoryPlayAndRecord, with: .defaultToSpeaker)
-                try session.setActive(true)
-                let settings = [
-                    AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-                    AVSampleRateKey: 44100,
-                    AVNumberOfChannelsKey: 2,
-                    AVEncoderAudioQualityKey:AVAudioQuality.high.rawValue
-                ]
-                audioRecorder = try AVAudioRecorder(url: getFileUrl(), settings: settings)
-                audioRecorder.delegate = self
-                audioRecorder.isMeteringEnabled = true
-                audioRecorder.prepareToRecord()
-            }
-            catch let error {
-                display_alert(msg_title: "Error", msg_desc: error.localizedDescription, action_title: "OK")
-            }
-        }
-        else
-        {
-            display_alert(msg_title: "Error", msg_desc: "Don't have access to use your microphone.", action_title: "OK")
-        }
-    }
-    
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

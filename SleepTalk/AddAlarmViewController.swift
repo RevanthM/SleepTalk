@@ -8,13 +8,166 @@
 
 import UIKit
 
-class AddAlarmViewController: UIViewController {
 
+//class Timer {
+//
+//    var hour: String
+//    var minutes: [String]
+//    var ampm: String
+//
+//    init(hour: String, minutes: [String] , ampm: String) {
+//        self.hour = hour
+//        self.minutes = minutes
+//        self.ampm = ampm
+//    }
+//}
+
+
+// https://www.youtube.com/watch?v=MhQGOdHjVAg , https://www.youtube.com/watch?v=U7d7K1_Uivw for tutorial on picker view
+
+class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+
+    @IBOutlet var timePickerView: UIPickerView!
+    @IBOutlet var timeLabel: UILabel!
+    
+    var hours = ["1",
+                 "2",
+                 "3",
+                 "4",
+                 "5",
+                 "6",
+                 "7",
+                 "8",
+                 "9",
+                 "10",
+                 "11",
+                 "12"]
+    
+    
+    var minutes = ["1",
+                   "2",
+                   "3",
+                   "4",
+                   "5",
+                   "6",
+                   "7",
+                   "8",
+                   "9",
+                   "10",
+                   "11",
+                   "12",
+                   "13",
+                   "14",
+                   "15",
+                   "16",
+                   "17",
+                   "18",
+                   "19",
+                   "20",
+                   "21",
+                   "22",
+                   "23",
+                   "24",
+                   "25",
+                   "26",
+                   "27",
+                   "28",
+                   "29",
+                   "30",
+                   "31",
+                   "32",
+                   "33",
+                   "34",
+                   "35",
+                   "36",
+                   "37",
+                   "38",
+                   "39",
+                   "40",
+                   "41",
+                   "42",
+                   "43",
+                   "44",
+                   "45",
+                   "46",
+                   "47",
+                   "48",
+                   "49",
+                   "50",
+                   "51",
+                   "52",
+                   "53",
+                   "54",
+                   "55",
+                   "56",
+                   "57",
+                   "58",
+                   "59"]
+    
+    var ampm = ["AM", "PM"]
+    
+    
+    
+    
+    
     override func viewDidLoad() {
+        
+        
+
+        
+        timePickerView.delegate = self
+        timePickerView.dataSource = self 
+        
+        
+        
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 3
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        
+        if component == 0 {
+          return  hours.count
+        }
+        else if component == 1 {
+         return   minutes.count
+        }
+        else {
+          return   ampm.count
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if component == 0 {
+            return  String(hours[row])
+        }
+        else if component == 1 {
+            return   String(minutes[row])
+        }
+        else {
+            return   String(ampm[row])
+        }
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        //
+    }
+    
+
+    
+    
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -33,3 +186,4 @@ class AddAlarmViewController: UIViewController {
     */
 
 }
+

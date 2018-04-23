@@ -101,7 +101,7 @@
         <!--AddAlarm-->
         <scene sceneID="DcU-BM-4cm">
             <objects>
-                <viewController id="doo-EF-KKJ" userLabel="AddAlarm" sceneMemberID="viewController">
+                <viewController id="doo-EF-KKJ" userLabel="AddAlarm" customClass="AddAlarmViewController" customModule="SleepTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E32-D9-QN5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -129,6 +129,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ktP-kf-U1N"/>
                     </view>
+                    <connections>
+                        <outlet property="timeLabel" destination="XfW-IK-Oxc" id="PMS-F1-tax"/>
+                        <outlet property="timePickerView" destination="7pF-8R-L4r" id="kJF-n1-f4S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53G-Ht-uVp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

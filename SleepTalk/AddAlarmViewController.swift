@@ -30,6 +30,10 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet var timePickerView: UIPickerView!
     @IBOutlet var timeLabel: UILabel!
     
+    var selectedHour = ""
+    var selectedMinute = ""
+    var selectedAMPM = ""
+    
     var hours = ["1",
                  "2",
                  "3",
@@ -44,15 +48,16 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                  "12"]
     
     
-    var minutes = ["1",
-                   "2",
-                   "3",
-                   "4",
-                   "5",
-                   "6",
-                   "7",
-                   "8",
-                   "9",
+    var minutes = ["00",
+                   "01",
+                   "02",
+                   "03",
+                   "04",
+                   "05",
+                   "06",
+                   "07",
+                   "08",
+                   "09",
                    "10",
                    "11",
                    "12",
@@ -160,7 +165,33 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         //
+        
+        selectedHour = String(pickerView.selectedRow(inComponent: 0))
+        selectedMinute = String(pickerView.selectedRow(inComponent: 1))
+        selectedAMPM = String(pickerView.selectedRow(inComponent: 2))
+        
+        
+        
+        if selectedHour == selectedHour {
+            // extremely convoluted statement, wtf am i doing...
+            selectedHour =  String(Int(selectedHour)! + 1)
+            
+        }
+        
+        
+        if Int(selectedAMPM) == 0 {
+            selectedAMPM = "AM"
+            
+        } else {
+            selectedAMPM = "PM"
+        }
+        
+        timeLabel.text = "Time: \(selectedHour) : \(selectedMinute) : \(selectedAMPM) "
+        
+        
+        
     }
+    
     
 
     

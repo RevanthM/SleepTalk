@@ -17,6 +17,7 @@
 		F23D9DDF20891CF000E3F6BD /* SleepTalkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D9DDE20891CF000E3F6BD /* SleepTalkTests.swift */; };
 		F23D9DEA20891CF000E3F6BD /* SleepTalkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D9DE920891CF000E3F6BD /* SleepTalkUITests.swift */; };
 		F23D9DF82089295C00E3F6BD /* NewRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D9DF72089295C00E3F6BD /* NewRecordingViewController.swift */; };
+		F296524C2090E51F002336B0 /* AlarmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F296524B2090E51F002336B0 /* AlarmTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		F23D9DE920891CF000E3F6BD /* SleepTalkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTalkUITests.swift; sourceTree = "<group>"; };
 		F23D9DEB20891CF000E3F6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F23D9DF72089295C00E3F6BD /* NewRecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecordingViewController.swift; sourceTree = "<group>"; };
+		F296524B2090E51F002336B0 /* AlarmTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				F23D9DD220891CEF00E3F6BD /* LaunchScreen.storyboard */,
 				F23D9DD520891CEF00E3F6BD /* Info.plist */,
 				F23D9DCD20891CEF00E3F6BD /* SleepTalk.xcdatamodeld */,
+				F296524B2090E51F002336B0 /* AlarmTableViewController.swift */,
 			);
 			path = SleepTalk;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F23D9DCF20891CEF00E3F6BD /* SleepTalk.xcdatamodeld in Sources */,
+				F296524C2090E51F002336B0 /* AlarmTableViewController.swift in Sources */,
 				F23D9DC920891CEF00E3F6BD /* ViewController.swift in Sources */,
 				F23AF0DE208D4C8200F7E757 /* AddAlarmViewController.swift in Sources */,
 				F23D9DF82089295C00E3F6BD /* NewRecordingViewController.swift in Sources */,

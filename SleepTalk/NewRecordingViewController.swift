@@ -243,6 +243,19 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
         present(ac, animated: true)
     }
 
+    // when save is clicked implement core data
+    // tutorials for coredata used https://www.youtube.com/watch?v=cL68k-2yINY , https://www.youtube.com/watch?v=3b8P44XdwkQ , https://www.youtube.com/watch?v=Xnqk9nVeU1E
+    
+    @IBAction func saveButton(_ sender: UIButton) {
+        
+        
+        
+        
+        
+    }
+    
+    
+    
     
     
     override func didReceiveMemoryWarning() {

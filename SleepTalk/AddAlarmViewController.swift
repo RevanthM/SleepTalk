@@ -9,18 +9,7 @@
 import UIKit
 
 
-//class Timer {
-//
-//    var hour: String
-//    var minutes: [String]
-//    var ampm: String
-//
-//    init(hour: String, minutes: [String] , ampm: String) {
-//        self.hour = hour
-//        self.minutes = minutes
-//        self.ampm = ampm
-//    }
-//}
+// will want to integrate this later https://www.youtube.com/watch?v=QBuYmP2p3AY as better picker view... save screen space and have entire app as 1 screen?
 
 
 // https://www.youtube.com/watch?v=MhQGOdHjVAg , https://www.youtube.com/watch?v=U7d7K1_Uivw for tutorial on picker view

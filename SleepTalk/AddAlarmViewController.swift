@@ -14,10 +14,15 @@ import UIKit
 
 // https://www.youtube.com/watch?v=MhQGOdHjVAg , https://www.youtube.com/watch?v=U7d7K1_Uivw for tutorial on picker view
 
+// So when the save button is clicked. The CoreData + the arrays are updated.
+
 class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    @IBOutlet var alarmNameLabel: UITextField!
+    var audioSelected = ""
     @IBOutlet var timePickerView: UIPickerView!
     @IBOutlet var timeLabel: UILabel!
+    
     
     var selectedHour = ""
     var selectedMinute = ""
@@ -100,6 +105,21 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                    "59"]
     
     var ampm = ["AM", "PM"]
+    
+    
+    @IBAction func selectAudioButton(_ sender: UIButton) {
+        
+        
+        
+    }
+    
+    
+    
+    @IBAction func saveButton(_ sender: UIButton) {
+        
+        
+    }
+    
     
     
     

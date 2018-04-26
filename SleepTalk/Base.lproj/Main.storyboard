@@ -211,11 +211,17 @@
                                 <rect key="frame" x="144" y="429" width="87" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Select Audio"/>
+                                <connections>
+                                    <action selector="selectAudioButton:" destination="doo-EF-KKJ" eventType="touchUpInside" id="Z95-mV-9gm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbg-rl-ynX">
                                 <rect key="frame" x="170" y="495" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="doo-EF-KKJ" eventType="touchUpInside" id="ATE-rn-w4Z"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alarm Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6R-ht-EgT">
                                 <rect key="frame" x="35" y="139" width="99" height="21"/>
@@ -229,6 +235,7 @@
                         <viewLayoutGuide key="safeArea" id="ktP-kf-U1N"/>
                     </view>
                     <connections>
+                        <outlet property="alarmNameLabel" destination="YHw-aH-6dY" id="JEo-Hd-gVC"/>
                         <outlet property="timeLabel" destination="XfW-IK-Oxc" id="PMS-F1-tax"/>
                         <outlet property="timePickerView" destination="7pF-8R-L4r" id="kJF-n1-f4S"/>
                     </connections>

@@ -36,6 +36,7 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                  "11",
                  "12"]
     
+    // dont worry i didn't type all of this, i wrote a loop and printed it to console and just cut and pasted it here.
     
     var minutes = ["00",
                    "01",

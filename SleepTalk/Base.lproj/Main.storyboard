@@ -63,11 +63,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yRb-Gh-zTo">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yRb-Gh-zTo">
                                 <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="Ibh-JX-y8W">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="customAlarmCell" rowHeight="100" id="Ibh-JX-y8W" customClass="CustomAlarmTableViewCell" customModule="SleepTalk" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ibh-JX-y8W" id="7je-B4-rak">
@@ -80,7 +80,7 @@
                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pbn-eS-9xt">
                                                             <rect key="frame" x="276" y="24" width="51" height="31"/>
                                                             <connections>
-                                                                <action selector="alarmSwitch:" destination="ei0-1b-rej" eventType="valueChanged" id="MpY-Lh-qna"/>
+                                                                <action selector="alarmSwitch:" destination="Ibh-JX-y8W" eventType="valueChanged" id="ezQ-Um-PD8"/>
                                                             </connections>
                                                         </switch>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOA-Dz-N50">
@@ -106,7 +106,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="UL8-gR-FLB" secondAttribute="bottom" id="KzQ-TF-EPc"/>
                                                         <constraint firstItem="UL8-gR-FLB" firstAttribute="leading" secondItem="Cpk-8D-ovj" secondAttribute="leading" id="Prf-1L-gAJ"/>
-                                                        <constraint firstItem="Bmb-o3-UGq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UL8-gR-FLB" secondAttribute="trailing" symbolic="YES" id="QWy-y6-mvJ"/>
+                                                        <constraint firstItem="Bmb-o3-UGq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UL8-gR-FLB" secondAttribute="trailing" constant="8" symbolic="YES" id="QWy-y6-mvJ"/>
                                                         <constraint firstAttribute="bottom" secondItem="Bmb-o3-UGq" secondAttribute="bottom" id="RP2-1E-u53"/>
                                                         <constraint firstAttribute="trailing" secondItem="YOA-Dz-N50" secondAttribute="trailing" constant="171" id="kNa-Ny-Tt5"/>
                                                         <constraint firstAttribute="trailing" secondItem="Bmb-o3-UGq" secondAttribute="trailing" constant="84" id="mJg-Ep-JZo"/>
@@ -124,6 +124,13 @@
                                                 <constraint firstItem="Cpk-8D-ovj" firstAttribute="top" secondItem="7je-B4-rak" secondAttribute="topMargin" constant="5" id="ym0-eH-dbF"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="alarmNameLabel" destination="UL8-gR-FLB" id="bX1-sE-CTi"/>
+                                            <outlet property="alarmSwitchOutlet" destination="pbn-eS-9xt" id="byy-Ha-ebY"/>
+                                            <outlet property="audioNameLabel" destination="Bmb-o3-UGq" id="BSY-IS-ww8"/>
+                                            <outlet property="cellView" destination="Cpk-8D-ovj" id="kzm-mV-lfH"/>
+                                            <outlet property="timeLabel" destination="YOA-Dz-N50" id="div-si-Xvf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -146,14 +153,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="alarmTableView" destination="yRb-Gh-zTo" id="t4b-ah-PBE"/>
-                        <outlet property="audioNameLabel" destination="Bmb-o3-UGq" id="EJe-wo-5Wp"/>
-                        <outlet property="timeLabel" destination="YOA-Dz-N50" id="XGc-E1-Y4D"/>
+                        <outlet property="alarmTableView" destination="yRb-Gh-zTo" id="598-Ta-7Fl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQX-ew-7a4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1412" y="653.94088669950747"/>
+            <point key="canvasLocation" x="-1339" y="654"/>
         </scene>
         <!--AddAlarm-->
         <scene sceneID="DcU-BM-4cm">
@@ -163,27 +168,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7pF-8R-L4r">
-                                <rect key="frame" x="0.0" y="88" width="375" height="165"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="165" id="UZt-12-w9a"/>
-                                </constraints>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7pF-8R-L4r">
+                                <rect key="frame" x="0.0" y="204" width="375" height="165"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XfW-IK-Oxc">
-                                <rect key="frame" x="142" y="273" width="91" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XfW-IK-Oxc">
+                                <rect key="frame" x="142" y="377" width="91" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YHw-aH-6dY">
+                                <rect key="frame" x="150" y="134" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O9g-ai-WhW">
+                                <rect key="frame" x="144" y="429" width="87" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Select Audio"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbg-rl-ynX">
+                                <rect key="frame" x="170" y="495" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alarm Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6R-ht-EgT">
+                                <rect key="frame" x="35" y="139" width="99" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="7pF-8R-L4r" firstAttribute="top" secondItem="ktP-kf-U1N" secondAttribute="top" id="FT7-zQ-b1Z"/>
-                            <constraint firstItem="7pF-8R-L4r" firstAttribute="trailing" secondItem="ktP-kf-U1N" secondAttribute="trailing" id="KSg-bW-Vox"/>
-                            <constraint firstItem="XfW-IK-Oxc" firstAttribute="top" secondItem="7pF-8R-L4r" secondAttribute="bottom" constant="20" id="f8d-sE-h0N"/>
-                            <constraint firstItem="XfW-IK-Oxc" firstAttribute="centerX" secondItem="E32-D9-QN5" secondAttribute="centerX" id="pyz-1a-Y0S"/>
-                            <constraint firstItem="7pF-8R-L4r" firstAttribute="leading" secondItem="ktP-kf-U1N" secondAttribute="leading" id="sk0-pZ-KE8"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ktP-kf-U1N"/>
                     </view>
                     <connections>
@@ -278,7 +299,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PZL-bB-qqL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1337" y="-86"/>
+            <point key="canvasLocation" x="-1338" y="-431"/>
         </scene>
         <!--Recordings-->
         <scene sceneID="eMq-uR-QK4">

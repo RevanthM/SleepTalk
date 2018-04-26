@@ -19,6 +19,7 @@
 		F23D9DF82089295C00E3F6BD /* NewRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D9DF72089295C00E3F6BD /* NewRecordingViewController.swift */; };
 		F296524C2090E51F002336B0 /* AlarmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F296524B2090E51F002336B0 /* AlarmTableViewController.swift */; };
 		F296524E209250D0002336B0 /* DataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F296524D209250D0002336B0 /* DataHolder.swift */; };
+		F296525020925745002336B0 /* CustomAlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F296524F20925745002336B0 /* CustomAlarmTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		F23D9DF72089295C00E3F6BD /* NewRecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecordingViewController.swift; sourceTree = "<group>"; };
 		F296524B2090E51F002336B0 /* AlarmTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewController.swift; sourceTree = "<group>"; };
 		F296524D209250D0002336B0 /* DataHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHolder.swift; sourceTree = "<group>"; };
+		F296524F20925745002336B0 /* CustomAlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlarmTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				F23AF0DD208D4C8200F7E757 /* AddAlarmViewController.swift */,
 				F296524B2090E51F002336B0 /* AlarmTableViewController.swift */,
 				F296524D209250D0002336B0 /* DataHolder.swift */,
+				F296524F20925745002336B0 /* CustomAlarmTableViewCell.swift */,
 				F23D9DCA20891CEF00E3F6BD /* Main.storyboard */,
 				F23D9DD020891CEF00E3F6BD /* Assets.xcassets */,
 				F23D9DD220891CEF00E3F6BD /* LaunchScreen.storyboard */,
@@ -275,6 +278,7 @@
 				F296524C2090E51F002336B0 /* AlarmTableViewController.swift in Sources */,
 				F23D9DC920891CEF00E3F6BD /* ViewController.swift in Sources */,
 				F23AF0DE208D4C8200F7E757 /* AddAlarmViewController.swift in Sources */,
+				F296525020925745002336B0 /* CustomAlarmTableViewCell.swift in Sources */,
 				F23D9DF82089295C00E3F6BD /* NewRecordingViewController.swift in Sources */,
 				F296524E209250D0002336B0 /* DataHolder.swift in Sources */,
 				F23D9DC720891CEF00E3F6BD /* AppDelegate.swift in Sources */,

@@ -8,37 +8,39 @@
 
 import UIKit
 
-class AlarmTableViewController: UIViewController {
-//, UITableViewDelegate, UITableViewDataSource {
+// I followed https://www.youtube.com/watch?v=kYmZ-4l0Yy4 this tutorial
+
+class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var alarmTableView: UITableView!
     
-    @IBOutlet var timeLabel: UILabel!
     
-    @IBOutlet var audioNameLabel: UILabel!
-    
-    
-    
-    
-    @IBAction func alarmSwitch(_ sender: UISwitch) {
+    let elements = ["1","2"]
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      return  elements.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customAlarmCell") as! CustomAlarmTableViewCell
+        
+        cell.alarmNameLabel.text = elements[indexPath.row]
+        cell.audioNameLabel.text = elements[indexPath.row]
+        cell.timeLabel.text = elements[indexPath.row]
+        
+        return cell
         
         
     }
-    
-    
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//      return  1
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//      return  "hi"
-//    }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+         alarmTableView.delegate = self
+         alarmTableView.dataSource = self
+        
         // Do any additional setup after loading the view.
     }
 

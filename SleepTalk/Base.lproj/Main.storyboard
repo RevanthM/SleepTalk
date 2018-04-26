@@ -57,7 +57,7 @@
         <!--Alarm-->
         <scene sceneID="4Aa-d9-vp7">
             <objects>
-                <viewController id="ei0-1b-rej" userLabel="Alarm" sceneMemberID="viewController">
+                <viewController id="ei0-1b-rej" userLabel="Alarm" customClass="AlarmTableViewController" customModule="SleepTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SrL-O1-ksX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

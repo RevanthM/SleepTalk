@@ -109,12 +109,12 @@
 				F23D9DC820891CEF00E3F6BD /* ViewController.swift */,
 				F23D9DF72089295C00E3F6BD /* NewRecordingViewController.swift */,
 				F23AF0DD208D4C8200F7E757 /* AddAlarmViewController.swift */,
+				F296524B2090E51F002336B0 /* AlarmTableViewController.swift */,
 				F23D9DCA20891CEF00E3F6BD /* Main.storyboard */,
 				F23D9DD020891CEF00E3F6BD /* Assets.xcassets */,
 				F23D9DD220891CEF00E3F6BD /* LaunchScreen.storyboard */,
 				F23D9DD520891CEF00E3F6BD /* Info.plist */,
 				F23D9DCD20891CEF00E3F6BD /* SleepTalk.xcdatamodeld */,
-				F296524B2090E51F002336B0 /* AlarmTableViewController.swift */,
 			);
 			path = SleepTalk;
 			sourceTree = "<group>";

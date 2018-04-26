@@ -12,6 +12,10 @@ import UIKit
 
 class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var classDataHolder = DataHolder()
+    
+    
+    
     @IBOutlet var alarmTableView: UITableView!
     
     
@@ -25,9 +29,30 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
       
         let cell = tableView.dequeueReusableCell(withIdentifier: "customAlarmCell") as! CustomAlarmTableViewCell
         
-        cell.alarmNameLabel.text = elements[indexPath.row]
+        if classDataHolder.alarmNameArray.count != 0 {
+        cell.alarmNameLabel.text = classDataHolder.alarmNameArray[indexPath.row]
+        
+        } else {
+            
+         cell.alarmNameLabel.text = elements[indexPath.row]
+            
+            
+        }
+        
         cell.audioNameLabel.text = elements[indexPath.row]
-        cell.timeLabel.text = elements[indexPath.row]
+        
+        
+        if classDataHolder.timerLabelArray.count != 0 {
+        cell.timeLabel.text = classDataHolder.timerLabelArray[indexPath.row]
+        
+        } else {
+            
+            cell.alarmNameLabel.text = elements[indexPath.row]
+            
+            
+        }
+            
+        //cell.timeLabel.text = elements[indexPath.row]
         
         return cell
         

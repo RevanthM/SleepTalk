@@ -18,10 +18,16 @@ import UIKit
 
 class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    // initiating declaring dataholder class
+    let classDataHolder = DataHolder()
+    
+    
+    
     @IBOutlet var alarmNameLabel: UITextField!
     var audioSelected = ""
     @IBOutlet var timePickerView: UIPickerView!
     @IBOutlet var timeLabel: UILabel!
+    
     
     
     var selectedHour = ""
@@ -117,6 +123,10 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func saveButton(_ sender: UIButton) {
         
+        classDataHolder.alarmNameArray.append(alarmNameLabel.text!)
+        classDataHolder.timerLabelArray.append(timeLabel.text!)
+        
+        
         
     }
     
@@ -126,7 +136,20 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     
     override func viewDidLoad() {
+//        // resign keyboard
+//        let toolbar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0,  width: self.view.frame.size.width, height: 30))
+//        //create left side empty space so that done button set on right side
+//        let flexSpace = UIBarButtonItem(barButtonSystemItem:    .flexibleSpace, target: nil, action: nil)
+//        let doneBtn: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: Selector(("doneButtonAction")))
+//        toolbar.setItems([flexSpace, doneBtn], animated: false)
+//        toolbar.sizeToFit()
+//
+//        self.alarmNameLabel.inputAccessoryView = toolbar
+        // seriously wtf apple this is way more complicated then it has to be.
+        // tutorial used https://stackoverflow.com/questions/30983516/add-uitoolbar-to-all-keyboards-swift
         
+        addToolBar(textField: alarmNameLabel)
+//        //
         
 
         
@@ -141,6 +164,10 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         // Do any additional setup after loading the view.
     }
     
+    
+//    func doneButtonAction() {
+//        self.view.endEditing(true)
+//    }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3
@@ -226,5 +253,33 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     */
 
+}
+
+extension UIViewController: UITextFieldDelegate {
+    func addToolBar(textField: UITextField) {
+        let toolBar = UIToolbar()
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = UIColor(red: 76 / 255, green: 217 / 255, blue: 100 / 255, alpha: 1)
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(donePressed))
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelPressed))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        
+        
+        toolBar.isUserInteractionEnabled = true
+        toolBar.sizeToFit()
+        
+        textField.delegate = self
+        textField.inputAccessoryView = toolBar
+    }
+    
+    @objc func donePressed() {
+        view.endEditing(true)
+    }
+    
+    @objc func cancelPressed() {
+        view.endEditing(true) // or do something
+    }
 }
 

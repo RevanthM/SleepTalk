@@ -9,6 +9,32 @@
 import UIKit
 
 class AlarmTableViewController: UIViewController {
+//, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet var alarmTableView: UITableView!
+    
+    @IBOutlet var timeLabel: UILabel!
+    
+    @IBOutlet var audioNameLabel: UILabel!
+    
+    
+    
+    
+    @IBAction func alarmSwitch(_ sender: UISwitch) {
+        
+        
+    }
+    
+    
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//      return  1
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//      return  "hi"
+//    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

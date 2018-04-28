@@ -123,8 +123,8 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func saveButton(_ sender: UIButton) {
         
-        classDataHolder.alarmNameArray.append(alarmNameLabel.text!)
-        classDataHolder.timerLabelArray.append(timeLabel.text!)
+        classDataHolder.alarmNameArray!.append(alarmNameLabel.text!)
+        classDataHolder.timerLabelArray!.append(timeLabel.text!)
         
         
         

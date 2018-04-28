@@ -13,23 +13,44 @@ class DataHolder {
     // setting up arrays screen by screen
     // alarmTableView
     
-    var timerLabelArray = [String]()
+    var timerLabelArray:[String]?
     
-    var alarmNameArray = [String]()
+    var alarmNameArray:[String]?
     
-    var audioNameArray = [String]()
+    var audioNameArray:[String]?
     
-    var audioAlarmNameDictionary = [String : String]() // each alarm is associated with a specific audio filename
+    var audioAlarmNameDictionary:[String : String]? // each alarm is associated with a specific audio filename
     
-    var alarmONOFF = [String]()
+    var alarmONOFF:[String]?
     
     // Add AlarmViewControllers - I realized some arrays repeat and are reused once saved in coredata.
     
     // Add recordingViewController
     
-    var audioDurationArray = [String]()
+    var audioDurationArray:[String]?
     
-    var audioNameDurationDictionary = [String : Int]()
+    var audioNameDurationDictionary:[String : Int]?
     
     
+//    func saveData(timerLabelArray:[String]) {
+//
+//        UserDefaults.standard.set(timerLabelArray, forKey: "timerLabelArray")
+//
+//
+//    }
+//    
+//    func fetchData() -> [String]? {
+//        if let timerArray = UserDefaults.standard.array(forKey: "timerLabelArray") as? [String] {
+//
+//            return timerArray
+//
+//        } else {
+//
+//            return nil
+//        }
+//
+//
+//    }
 }
+
+

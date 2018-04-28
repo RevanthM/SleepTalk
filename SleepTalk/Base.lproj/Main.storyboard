@@ -200,7 +200,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YHw-aH-6dY">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YHw-aH-6dY" userLabel="Alarm Name TextField">
                                 <rect key="frame" x="150" y="134" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -235,7 +235,7 @@
                         <viewLayoutGuide key="safeArea" id="ktP-kf-U1N"/>
                     </view>
                     <connections>
-                        <outlet property="alarmNameLabel" destination="YHw-aH-6dY" id="JEo-Hd-gVC"/>
+                        <outlet property="addAlarmTextField" destination="YHw-aH-6dY" id="3ri-ll-Fq5"/>
                         <outlet property="timeLabel" destination="XfW-IK-Oxc" id="PMS-F1-tax"/>
                         <outlet property="timePickerView" destination="7pF-8R-L4r" id="kJF-n1-f4S"/>
                     </connections>

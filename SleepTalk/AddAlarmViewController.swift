@@ -123,7 +123,19 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func saveButton(_ sender: UIButton) {
         
+        if  (textField.text != nil) && textField.text != "" {
+            
+            self.navigationController?.popViewController(animated: true)
+            
+            todoList?.append(textField.text!)
+            
+            textField.text = ""
+            
+            textField.placeholder = "Add More ?"
+        }
     
+        
+    self.navigationController?.popViewController(animated: true)
         
         
         

@@ -18,7 +18,83 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-    
+        if let todoTimerLabelArray  = fetchDataTimerLabelArray() {
+            
+            timerLabelArray = todoTimerLabelArray
+            
+        } else {
+            
+            
+            timerLabelArray = [String]()
+            
+        }
+        
+        if let todoSelectedMinuteArray  = fetchDataSelectedMinuteArray() {
+            
+           selectedMinuteArray = todoSelectedMinuteArray
+            
+        } else {
+            
+            
+           selectedMinuteArray = [Int]()
+            
+        }
+        
+      
+        if let todoSelectedHourArray  = fetchDataSelectedHourArray() {
+            
+            selectedHourArray = todoSelectedHourArray
+            
+        } else {
+            
+            
+            selectedHourArray = [Int]()
+            
+        }
+        
+        if let todoSelectedAMPMArray  = fetchDataSelectedAMPMArray() {
+            
+            selectedAMPMArray = todoSelectedAMPMArray
+            
+        } else {
+            
+            
+            selectedAMPMArray = [String]()
+            
+        }
+        
+        if let todoAddAlarmTextFieldArray  = fetchDataAddAlarmTextFieldArray() {
+            
+            addAlarmTextFieldArray = todoAddAlarmTextFieldArray
+            
+        } else {
+            
+            
+            addAlarmTextFieldArray = [String]()
+            
+        }
+        
+        if let todoAlarmONOFF  = fetchDataAlarmONOFF() {
+            
+            alarmONOFF = todoAlarmONOFF
+            
+        } else {
+            
+            
+            alarmONOFF = [Bool]()
+            
+        }
+        
+        if let todoAudioNameArray  = fetchDataAudioNameArray() {
+            
+            audioNameArray = todoAudioNameArray
+            
+        } else {
+            
+            
+            audioNameArray = [String]()
+            
+        }
         
         return true
     }

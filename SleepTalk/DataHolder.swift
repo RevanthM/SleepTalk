@@ -15,13 +15,13 @@ import Foundation
     
     var timerLabelArray:[String]?
 
-    // the reason why hours minutes ampm arrays exist is because its easier for the timer to work with integer values while the label is displayed on the tableview. Otherwise there would be constant parsing and adding of strings to int and vice versa
+    // the reason why hours minutes ampm arrays exist is because its easier for the timer to work with values that aren't concatenated, while the label is displayed on the tableview is concatenated . Otherwise there would be constant parsing and adding of strings to int and vice versa
 
     var selectedHourArray:[Int]?
 
     var selectedMinuteArray:[Int]?
 
-    var selectedAMPMArray: [Int]?
+    var selectedAMPMArray: [String]?
     
     var addAlarmTextFieldArray:[String]?
     
@@ -53,38 +53,38 @@ func saveDataTimerLabelArray(timerLabelArray:[String]) {
 
 func saveDataSelectedMinuteArray(selectedMinuteArray:[Int]) {
     
-    UserDefaults.standard.set(selectedMinuteArray, forKey: "timerLabelArray")
+    UserDefaults.standard.set(selectedMinuteArray, forKey: "selectedMinuteArray")
     
 }
 
 
 func saveDataSelectedHourArray(selectedHourArray:[Int]) {
     
-    UserDefaults.standard.set(selectedHourArray, forKey: "timerLabelArray")
+    UserDefaults.standard.set(selectedHourArray, forKey: "selectedHourArray")
     
 }
 
 func saveDataSelectedAMPMArray(selectedAMPMArray:[String]) {
     
-    UserDefaults.standard.set(selectedAMPMArray, forKey: "timerLabelArray")
+    UserDefaults.standard.set(selectedAMPMArray, forKey: "selectedAMPMArray")
     
 }
 
 func saveDataAddAlarmTextFieldArray(addAlarmTextFieldArray:[String]) {
     
-    UserDefaults.standard.set(addAlarmTextFieldArray, forKey: "timerLabelArray")
+    UserDefaults.standard.set(addAlarmTextFieldArray, forKey: "addAlarmTextFieldArray")
     
 }
 
 func saveDataAlarmONOFF(alarmONOFF:[Bool]) {
     
-    UserDefaults.standard.set(alarmONOFF, forKey: "timerLabelArray")
+    UserDefaults.standard.set(alarmONOFF, forKey: "alarmONOFF")
     
 }
 
 func saveDataAudioNameArray(audioNameArray:[String]) {
     
-    UserDefaults.standard.set(audioNameArray, forKey: "timerLabelArray")
+    UserDefaults.standard.set(audioNameArray, forKey: "audioNameArray")
     
 }
 

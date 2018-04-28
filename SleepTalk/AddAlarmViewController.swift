@@ -255,6 +255,8 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 
 }
 
+// textfield has done and cancel buttons
+
 extension UIViewController: UITextFieldDelegate {
     func addToolBar(textField: UITextField) {
         let toolBar = UIToolbar()

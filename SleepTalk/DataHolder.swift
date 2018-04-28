@@ -64,7 +64,7 @@ func saveDataSelectedHourArray(selectedHourArray:[Int]) {
     
 }
 
-func saveDataSelectedAMPMArray(selectedAMPMArray:[Int]) {
+func saveDataSelectedAMPMArray(selectedAMPMArray:[String]) {
     
     UserDefaults.standard.set(selectedAMPMArray, forKey: "timerLabelArray")
     
@@ -96,21 +96,101 @@ func saveDataAudioNameArray(audioNameArray:[String]) {
 // fetch starts here
 
 
-func fetchData() -> [String]? {
+func fetchDataTimerLabelArray() -> [String]? {
     
-    if let todo = UserDefaults.standard.array(forKey: "todoList") as?  [String]
+    if let todoTimerLabelArray = UserDefaults.standard.array(forKey: "timerLabelArray") as?  [String]
     {
         
-        return todo
+        return todoTimerLabelArray
     } else {
         
         return nil
         
     }
     
+}
+
+func fetchDataSelectedMinuteArray() -> [Int]? {
     
+    if let todoSelectedMinuteArray = UserDefaults.standard.array(forKey: "selectedMinuteArray") as?  [Int]
+    {
+        
+        return todoSelectedMinuteArray
+    } else {
+        
+        return nil
+        
+    }
     
+}
+
+func fetchDataSelectedHourArray() -> [Int]? {
     
+    if let todoSelectedHourArray = UserDefaults.standard.array(forKey: "selectedHourArray") as?  [Int]
+    {
+        
+        return todoSelectedHourArray
+    } else {
+        
+        return nil
+        
+    }
+    
+}
+
+func fetchDataSelectedAMPMArray() -> [String]? {
+    
+    if let todoSelectedAMPMArray = UserDefaults.standard.array(forKey: "selectedAMPMArray") as?  [String]
+    {
+        
+        return todoSelectedAMPMArray
+    } else {
+        
+        return nil
+        
+    }
+    
+}
+
+func fetchDataAddAlarmTextFieldArray() -> [String]? {
+    
+    if let todoAddAlarmTextFieldArray = UserDefaults.standard.array(forKey: "addAlarmTextFieldArray") as?  [String]
+    {
+        
+        return todoAddAlarmTextFieldArray
+    } else {
+        
+        return nil
+        
+    }
+    
+}
+
+func fetchDataAlarmONOFF() -> [Bool]? {
+    
+    if let todoAlarmONOFF = UserDefaults.standard.array(forKey: "alarmONOFF") as?  [Bool]
+    {
+        
+        return todoAlarmONOFF
+    } else {
+        
+        return nil
+        
+    }
+    
+}
+
+func fetchDataAudioNameArray() -> [String]? {
+    
+    if let todoAudioNameArray = UserDefaults.standard.array(forKey: "audioNameArray") as?  [String]
+    {
+        
+        return todoAudioNameArray
+    } else {
+        
+        return nil
+        
+    }
     
 }
 

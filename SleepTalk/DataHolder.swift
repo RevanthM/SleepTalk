@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DataHolder {
+
     
     // setting up arrays screen by screen
     // alarmTableView
@@ -32,25 +32,7 @@ class DataHolder {
     var audioNameDurationDictionary:[String : Int]?
     
     
-//    func saveData(timerLabelArray:[String]) {
-//
-//        UserDefaults.standard.set(timerLabelArray, forKey: "timerLabelArray")
-//
-//
-//    }
-//    
-//    func fetchData() -> [String]? {
-//        if let timerArray = UserDefaults.standard.array(forKey: "timerLabelArray") as? [String] {
-//
-//            return timerArray
-//
-//        } else {
-//
-//            return nil
-//        }
-//
-//
-//    }
-}
+
+
 
 

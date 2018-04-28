@@ -22,10 +22,11 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     
     
-    @IBOutlet var alarmNameLabel: UITextField!
+
     var audioSelected = ""
     @IBOutlet var timePickerView: UIPickerView!
     @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var addAlarmTextField: UITextField!
     
     
     
@@ -146,7 +147,7 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         // seriously wtf apple this is way more complicated then it has to be.
         // tutorial used https://stackoverflow.com/questions/30983516/add-uitoolbar-to-all-keyboards-swift
         
-        addToolBar(textField: alarmNameLabel)
+        addToolBar(textField: addAlarmTextField)
 //        //
         
 

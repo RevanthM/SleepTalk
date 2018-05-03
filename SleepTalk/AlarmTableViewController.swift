@@ -14,23 +14,21 @@ import UIKit
 
 class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var classDataHolder = DataHolder()
-    
-    
     
     @IBOutlet var alarmTableView: UITableView!
     
     
-    let elements = ["1","2"]
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
-        if classDataHolder.timerLabelArray?.count == 0 {
-            return 0
+        if let todo = timerLabelArray {
+            
+            return todo.count
+            
         } else {
-            return classDataHolder.timerLabelArray!.count
+            
+            return 0
         }
-        
         
         
     }
@@ -39,8 +37,9 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
       
         let cell = tableView.dequeueReusableCell(withIdentifier: "customAlarmCell") as! CustomAlarmTableViewCell
         
-        cell.alarmNameLabel.text = classDataHolder.alarmNameArray![indexPath.row]
-        cell.timeLabel.text = classDataHolder.timerLabelArray![indexPath.row]
+        cell.alarmNameLabel.text = addAlarmTextFieldArray![indexPath.row]
+        
+        cell.timeLabel.text = timerLabelArray![indexPath.row]
         
 //        if classDataHolder.alarmNameArray.count != 0 {
 //        cell.alarmNameLabel.text = classDataHolder.alarmNameArray[indexPath.row]

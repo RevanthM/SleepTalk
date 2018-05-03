@@ -138,6 +138,32 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             
         }
     
+        if  (selectedMinute != "") {
+            
+            selectedMinuteArray?.append(Int(selectedMinute)!)
+            
+        }
+        
+        if  (selectedHour != "") {
+            
+            selectedHourArray?.append(Int(selectedHour)!)
+            
+        }
+        
+        if  (selectedHour != "") {
+            
+            selectedHourArray?.append(Int(selectedHour)!)
+            
+        }
+        
+        if  selectedAMPM != "" {
+            
+            selectedAMPM.append(selectedAMPM)
+            
+        }
+        
+        alarmONOFF?.append(true)
+        
         
     self.navigationController?.popViewController(animated: true)
         

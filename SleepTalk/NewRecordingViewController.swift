@@ -193,6 +193,7 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
         if(isPlaying)
         {
             audioPlayer.stop()
+            audioPlayer.currentTime = 0
             record_btn_ref.isEnabled = true
             play_btn_ref.setTitle("Play", for: .normal)
             isPlaying = false
@@ -202,7 +203,8 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
             if FileManager.default.fileExists(atPath: getFileUrl().path)
             {
                 record_btn_ref.isEnabled = false
-                play_btn_ref.setTitle("pause", for: .normal)
+                play_btn_ref.setTitle("Pause", for: .normal)
+                play_btn_ref.sizeToFit();
                 prepare_play()
                 audioPlayer.play()
                 isPlaying = true
@@ -227,6 +229,8 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
     {
+        isPlaying = false
+        play_btn_ref.setTitle("Play", for: .normal)
         record_btn_ref.isEnabled = true
     }
     

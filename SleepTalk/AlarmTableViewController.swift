@@ -32,6 +32,12 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
         
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        alarmTableView.reloadData()
+    }
+    
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       

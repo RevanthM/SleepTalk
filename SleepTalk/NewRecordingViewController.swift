@@ -14,7 +14,6 @@ import AVFoundation
 
 class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
- 
     @IBOutlet var recordingTimeLabel: UILabel!
     @IBOutlet var record_btn_ref: UIButton!
     @IBOutlet var play_btn_ref: UIButton!

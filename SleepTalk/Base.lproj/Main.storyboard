@@ -104,8 +104,8 @@
                                                                 <action selector="alarmSwitch:" destination="Ibh-JX-y8W" eventType="valueChanged" id="ezQ-Um-PD8"/>
                                                             </connections>
                                                         </switch>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOA-Dz-N50">
-                                                            <rect key="frame" x="0.0" y="0.0" width="164" height="45"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOA-Dz-N50">
+                                                            <rect key="frame" x="0.0" y="0.0" width="164" height="44.333333333333336"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -179,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQX-ew-7a4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1339" y="654"/>
+            <point key="canvasLocation" x="-1340" y="653.94088669950747"/>
         </scene>
         <!--AddAlarm-->
         <scene sceneID="DcU-BM-4cm">

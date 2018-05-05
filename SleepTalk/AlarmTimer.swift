@@ -52,9 +52,14 @@ class AlarmTimer {
             AMPMCheck = "AM"
         }
         
+        print(AMPMCheck)
+        
         currentTime = String(hour)+":"+String(minutes)+":"+AMPMCheck
         print(currentTime)
         
+        print(selectedHourArray)
+        print(selectedMinuteArray)
+        print(selectedAMPMArray)
         
     }
     

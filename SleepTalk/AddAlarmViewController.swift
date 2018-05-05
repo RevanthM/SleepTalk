@@ -168,15 +168,15 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             
         }
         
-        if  (selectedHour != "") {
-            
-            selectedHourArray?.append(Int(selectedHour)!)
-            
-        }
+//        if  (selectedHour != "") {
+//
+//            selectedHourArray?.append(Int(selectedHour)!)
+//
+//        }
         
         if  selectedAMPM != "" {
             
-            selectedAMPM.append(selectedAMPM)
+            selectedAMPMArray?.append(selectedAMPM)
             
         }
         

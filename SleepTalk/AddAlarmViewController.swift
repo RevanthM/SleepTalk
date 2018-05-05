@@ -130,6 +130,24 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             addAlarmTextField.text = ""
             
             addAlarmTextField.placeholder = "Add More ?"
+        } else if addAlarmTextField.text == ""
+        {
+            let alert = UIAlertController(title: "Error", message: "Please assign a name to this alarm.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in
+                switch action.style{
+                case .default:
+                    print("default")
+                    
+                case .cancel:
+                    print("cancel")
+                    
+                case .destructive:
+                    print("destructive")
+                    
+                    
+                }}))
+            self.present(alert, animated: true, completion: nil)
+            return
         }
         
         if  (timeLabel.text != nil) && timeLabel.text != "" {
@@ -188,24 +206,40 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 //        self.alarmNameLabel.inputAccessoryView = toolbar
         // seriously wtf apple this is way more complicated then it has to be.
         // tutorial used https://stackoverflow.com/questions/30983516/add-uitoolbar-to-all-keyboards-swift
-        
+        let numAlarms = timerLabelArray?.count
+        addAlarmTextField.text = "Alarm \(numAlarms!+1)"//Default text in case user forgets to assign custom name
         addToolBar(textField: addAlarmTextField)
 //        //
         
-
-        
         timePickerView.delegate = self
-        timePickerView.dataSource = self 
-        
-        
-        
+        timePickerView.dataSource = self
         
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setDefaultPickerValues()
     }
     
-    
+    func setDefaultPickerValues() //sets picker time to current time
+    {
+        let date = Date()
+        let calendar = Calendar.current
+        var hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        
+        if (hour > 12) {
+            timePickerView.selectRow(2, inComponent:2, animated:false)
+            hour = hour-12
+        }
+        timePickerView.selectRow(hour-1, inComponent: 0, animated: false)
+        timePickerView.selectRow(minutes, inComponent: 1, animated: false)
+        
+        selectedHour = String(timePickerView.selectedRow(inComponent: 0)+1)
+        selectedMinute = String(timePickerView.selectedRow(inComponent: 1))
+        selectedAMPM = String(timePickerView.selectedRow(inComponent: 2))
+        
+        timeLabel.text = "Time: \(selectedHour) : \(selectedMinute) : \(selectedAMPM) "
+    }
 //    func doneButtonAction() {
 //        self.view.endEditing(true)
 //    }
@@ -216,7 +250,7 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
-        
+
         if component == 0 {
           return  hours.count
         }

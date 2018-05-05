@@ -80,7 +80,7 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //alarmTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
          alarmTableView.delegate = self
          alarmTableView.dataSource = self
         

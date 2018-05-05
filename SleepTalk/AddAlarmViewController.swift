@@ -245,7 +245,7 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         //
         
         selectedHour = String(pickerView.selectedRow(inComponent: 0))
-        selectedMinute = String(pickerView.selectedRow(inComponent: 1))
+        selectedMinute = minutes[pickerView.selectedRow(inComponent: 1)]
         selectedAMPM = String(pickerView.selectedRow(inComponent: 2))
         
         

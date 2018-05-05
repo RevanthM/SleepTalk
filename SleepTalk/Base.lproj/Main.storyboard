@@ -104,8 +104,8 @@
                                                                 <action selector="alarmSwitch:" destination="Ibh-JX-y8W" eventType="valueChanged" id="ezQ-Um-PD8"/>
                                                             </connections>
                                                         </switch>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOA-Dz-N50">
-                                                            <rect key="frame" x="0.0" y="0.0" width="164" height="44.333333333333336"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YOA-Dz-N50">
+                                                            <rect key="frame" x="71" y="0.0" width="164" height="44.333333333333336"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -129,7 +129,7 @@
                                                         <constraint firstItem="UL8-gR-FLB" firstAttribute="leading" secondItem="Cpk-8D-ovj" secondAttribute="leading" id="Prf-1L-gAJ"/>
                                                         <constraint firstItem="Bmb-o3-UGq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UL8-gR-FLB" secondAttribute="trailing" constant="8" symbolic="YES" id="QWy-y6-mvJ"/>
                                                         <constraint firstAttribute="bottom" secondItem="Bmb-o3-UGq" secondAttribute="bottom" id="RP2-1E-u53"/>
-                                                        <constraint firstAttribute="trailing" secondItem="YOA-Dz-N50" secondAttribute="trailing" constant="171" id="kNa-Ny-Tt5"/>
+                                                        <constraint firstAttribute="trailing" secondItem="YOA-Dz-N50" secondAttribute="trailing" constant="100" id="kNa-Ny-Tt5"/>
                                                         <constraint firstAttribute="trailing" secondItem="Bmb-o3-UGq" secondAttribute="trailing" constant="84" id="mJg-Ep-JZo"/>
                                                         <constraint firstAttribute="trailing" secondItem="pbn-eS-9xt" secondAttribute="trailing" constant="10" id="nK1-8C-6Er"/>
                                                         <constraint firstItem="YOA-Dz-N50" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Cpk-8D-ovj" secondAttribute="leading" id="oAd-sS-OFY"/>

@@ -12,6 +12,7 @@ import UIKit
 var alarmTimer: Timer!
 
 
+
 class AlarmTimer {
     
     func alarmTimerFunction() {
@@ -32,6 +33,29 @@ class AlarmTimer {
 
         print("hi")
 
+        var date = Date()
+        var calendar = Calendar.current
+        var hour = calendar.component(.hour, from: date)
+        var minutes = calendar.component(.minute, from: date)
+        var AMPMCheck = ""
+        
+        print(date)
+        print(calendar)
+        print(hour)
+        print(minutes)
+        
+        if hour > 12 {
+           AMPMCheck = "PM"
+           hour = hour - 12
+            print(hour)
+        } else {
+            AMPMCheck = "AM"
+        }
+        
+        currentTime = String(hour)+":"+String(minutes)+":"+AMPMCheck
+        print(currentTime)
+        
+        
     }
     
     

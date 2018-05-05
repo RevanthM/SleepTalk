@@ -9,10 +9,12 @@
 import Foundation
 
 
-    
+    var currentTime = ""
     // setting up arrays screen by screen
     // alarmTableView
-    
+
+
+
     var timerLabelArray:[String]?
 
     // the reason why hours minutes ampm arrays exist is because its easier for the timer to work with values that aren't concatenated, while the label is displayed on the tableview is concatenated . Otherwise there would be constant parsing and adding of strings to int and vice versa

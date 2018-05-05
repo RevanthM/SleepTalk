@@ -9,14 +9,16 @@
 import Foundation
 import UIKit
 
+var alarmTimer: Timer!
+
 
 class AlarmTimer {
     
-    func alarmTimer() {
+    func alarmTimerFunction() {
 
 
 
-        alarmTimer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(runAlarmTimer), userInfo: nil, repeats: true)
+        alarmTimer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(runAlarmTimer), userInfo: nil, repeats: true)
 
 
 

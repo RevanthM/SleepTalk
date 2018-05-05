@@ -14,6 +14,10 @@ import UIKit
 
 class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var classAlarmTimer = AlarmTimer()
+    
+    
+    
     
     @IBOutlet var alarmTableView: UITableView!
     
@@ -85,6 +89,10 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
          alarmTableView.dataSource = self
         
         // Do any additional setup after loading the view.
+        
+        //starts timer
+        classAlarmTimer.alarmTimerFunction()
+        
     }
 
     override func didReceiveMemoryWarning() {

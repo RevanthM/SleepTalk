@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F22D1D65209E379200ED6D2B /* AlarmTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22D1D64209E379200ED6D2B /* AlarmTimer.swift */; };
 		F23AF0DE208D4C8200F7E757 /* AddAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23AF0DD208D4C8200F7E757 /* AddAlarmViewController.swift */; };
 		F23D9DC720891CEF00E3F6BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D9DC620891CEF00E3F6BD /* AppDelegate.swift */; };
 		F23D9DC920891CEF00E3F6BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D9DC820891CEF00E3F6BD /* ViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F22D1D64209E379200ED6D2B /* AlarmTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTimer.swift; sourceTree = "<group>"; };
 		F23AF0DD208D4C8200F7E757 /* AddAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmViewController.swift; sourceTree = "<group>"; };
 		F23D9DC320891CEF00E3F6BD /* SleepTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23D9DC620891CEF00E3F6BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		F23D9DC520891CEF00E3F6BD /* SleepTalk */ = {
 			isa = PBXGroup;
 			children = (
+				F22D1D64209E379200ED6D2B /* AlarmTimer.swift */,
 				F23D9DC620891CEF00E3F6BD /* AppDelegate.swift */,
 				F23D9DC820891CEF00E3F6BD /* ViewController.swift */,
 				F23D9DF72089295C00E3F6BD /* NewRecordingViewController.swift */,
@@ -281,6 +284,7 @@
 				F296525020925745002336B0 /* CustomAlarmTableViewCell.swift in Sources */,
 				F23D9DF82089295C00E3F6BD /* NewRecordingViewController.swift in Sources */,
 				F296524E209250D0002336B0 /* DataHolder.swift in Sources */,
+				F22D1D65209E379200ED6D2B /* AlarmTimer.swift in Sources */,
 				F23D9DC720891CEF00E3F6BD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

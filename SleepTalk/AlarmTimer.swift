@@ -7,3 +7,30 @@
 //
 
 import Foundation
+import UIKit
+
+
+class AlarmTimer {
+    
+    func alarmTimer() {
+
+
+
+        alarmTimer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(runAlarmTimer), userInfo: nil, repeats: true)
+
+
+
+
+
+    }
+
+    @objc func runAlarmTimer() {
+
+
+
+        print("hi")
+
+    }
+    
+    
+}

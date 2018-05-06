@@ -232,9 +232,9 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         timePickerView.selectRow(minutes2, inComponent: 1, animated: false)
         
         selectedHour = String(timePickerView.selectedRow(inComponent: 0)+1)
-        selectedMinute = String(timePickerView.selectedRow(inComponent: 1))
         
-        //
+     //   selectedMinute = String(timePickerView.selectedRow(inComponent: 1))
+        // the above commented out code shows 1,2,3. The below code shows 01,02,03 etc.
         selectedMinute = minutes[timePickerView.selectedRow(inComponent: 1)]
         
         

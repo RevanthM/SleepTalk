@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        // on launch access nsuserdefaults to populate arrays
 
         if let todoTimerLabelArray  = fetchDataTimerLabelArray() {
             
@@ -108,6 +110,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
         
+        // if application enters background save arrays
+        
         saveDataTimerLabelArray(timerLabelArray: timerLabelArray!)
         
         saveDataSelectedMinuteArray(selectedMinuteArray: selectedMinuteArray!)
@@ -140,6 +144,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
+        
+        // if application terminates save arrays
         
         saveDataTimerLabelArray(timerLabelArray: timerLabelArray!)
         

@@ -123,6 +123,7 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func saveButton(_ sender: UIButton) {
         
+        // this doesn't do anything???
         if  (addAlarmTextField.text != nil) && addAlarmTextField.text != "" {
             
             addAlarmTextFieldArray?.append(addAlarmTextField.text!)
@@ -130,7 +131,11 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             addAlarmTextField.text = ""
             
             addAlarmTextField.placeholder = "Add More ?"
-        } else if addAlarmTextField.text == ""
+        }
+        
+        else if addAlarmTextField.text == ""
+            
+            // alerts user to assign a name to alarm name
         {
             let alert = UIAlertController(title: "Error", message: "Please assign a name to this alarm.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in
@@ -155,7 +160,7 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             timerLabelArray?.append(timeLabel.text!)
             
         }
-    
+        // changed minutesarray to type string to allow appending of var minutes from this class to get 00,01,02 etc vs 0,1,2... maybe it was easier to convert string to int... fk.. also i had to wait a whole half hour to see how the current date time got the minutes if they were below 10, were they 00,01,02,03 etc or were they 0,1,2,3
         if  (selectedMinute != "") {
             
             selectedMinuteArray?.append(Int(selectedMinute)!)
@@ -168,21 +173,19 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             
         }
         
-//        if  (selectedHour != "") {
-//
-//            selectedHourArray?.append(Int(selectedHour)!)
-//
-//        }
         
-        if  selectedAMPM != "" {
+        if  selectedAMPM == "0" {
+            
+            selectedAMPMArray?.append("AM")
+            // fixes bug that assigns zero value to AMPM global variable
+        } else {
             
             selectedAMPMArray?.append(selectedAMPM)
-            
         }
         
         alarmONOFF?.append(true)
         
-        
+        // navigates back to previous screen
     self.navigationController?.popViewController(animated: true)
         
         
@@ -195,17 +198,8 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     
     override func viewDidLoad() {
-//        // resign keyboard
-//        let toolbar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0,  width: self.view.frame.size.width, height: 30))
-//        //create left side empty space so that done button set on right side
-//        let flexSpace = UIBarButtonItem(barButtonSystemItem:    .flexibleSpace, target: nil, action: nil)
-//        let doneBtn: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: Selector(("doneButtonAction")))
-//        toolbar.setItems([flexSpace, doneBtn], animated: false)
-//        toolbar.sizeToFit()
-//
-//        self.alarmNameLabel.inputAccessoryView = toolbar
-        // seriously wtf apple this is way more complicated then it has to be.
-        // tutorial used https://stackoverflow.com/questions/30983516/add-uitoolbar-to-all-keyboards-swift
+        
+        
         let numAlarms = timerLabelArray?.count
         addAlarmTextField.text = "Alarm \(numAlarms!+1)"//Default text in case user forgets to assign custom name
         addToolBar(textField: addAlarmTextField)
@@ -228,7 +222,10 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let minutes = calendar.component(.minute, from: date)
         
         if (hour > 12) {
+            selectedAMPM = "PM"
             timePickerView.selectRow(2, inComponent:2, animated:false)
+            // what does this the above line do? in component 2 you selected row 2 by default?
+            // w/e it works, I can't figure out the purpose of the first 2
             hour = hour-12
         }
         timePickerView.selectRow(hour-1, inComponent: 0, animated: false)
@@ -236,10 +233,19 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         selectedHour = String(timePickerView.selectedRow(inComponent: 0)+1)
         selectedMinute = String(timePickerView.selectedRow(inComponent: 1))
-        selectedAMPM = String(timePickerView.selectedRow(inComponent: 2))
+        
+        // the below is different because the default value is 0 instead am/pm
+  //      selectedAMPM = String(timePickerView.selectedRow(inComponent: 2))
+        
+        selectedAMPM = "AM"
         
         timeLabel.text = "Time: \(selectedHour) : \(selectedMinute) : \(selectedAMPM) "
     }
+    
+    
+    
+    
+    
 //    func doneButtonAction() {
 //        self.view.endEditing(true)
 //    }
@@ -331,7 +337,8 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 }
 
 // textfield has done and cancel buttons
-
+// seriously wtf apple this is way more complicated then it has to be.
+// tutorial used https://stackoverflow.com/questions/30983516/add-uitoolbar-to-all-keyboards-swift
 extension UIViewController: UITextFieldDelegate {
     func addToolBar(textField: UITextField) {
         let toolBar = UIToolbar()

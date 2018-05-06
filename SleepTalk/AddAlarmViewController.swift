@@ -160,7 +160,7 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             timerLabelArray?.append(timeLabel.text!)
             
         }
-        // changed minutesarray to type string to allow appending of var minutes from this class to get 00,01,02 etc vs 0,1,2... maybe it was easier to convert string to int... fk.. also i had to wait a whole half hour to see how the current date time got the minutes if they were below 10, were they 00,01,02,03 etc or were they 0,1,2,3
+        // changed minutesarray to type string to allow appending of var minutes from this class to get 00,01,02 etc vs 0,1,2... maybe it was easier to convert string to int... fk.. also i had to wait a whole half hour to see how the current date time got the minutes if they were below 10, were they 00,01,02,03 etc or were they 0,1,2,3... so I waited they appear as 0,1,2,3,4 etc
         if  (selectedMinute != "") {
             
             selectedMinuteArray?.append(Int(selectedMinute)!)
@@ -219,7 +219,7 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let date = Date()
         let calendar = Calendar.current
         var hour = calendar.component(.hour, from: date)
-        let minutes = calendar.component(.minute, from: date)
+        let minutes2 = calendar.component(.minute, from: date)
         
         if (hour > 12) {
             selectedAMPM = "PM"
@@ -229,10 +229,16 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             hour = hour-12
         }
         timePickerView.selectRow(hour-1, inComponent: 0, animated: false)
-        timePickerView.selectRow(minutes, inComponent: 1, animated: false)
+        timePickerView.selectRow(minutes2, inComponent: 1, animated: false)
         
         selectedHour = String(timePickerView.selectedRow(inComponent: 0)+1)
         selectedMinute = String(timePickerView.selectedRow(inComponent: 1))
+        
+        //
+        selectedMinute = minutes[timePickerView.selectedRow(inComponent: 1)]
+        
+        
+        
         
         // the below is different because the default value is 0 instead am/pm
   //      selectedAMPM = String(timePickerView.selectedRow(inComponent: 2))

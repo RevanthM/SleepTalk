@@ -19,9 +19,21 @@ class CustomAlarmTableViewCell: UITableViewCell {
     @IBOutlet var alarmSwitchOutlet: UISwitch!
     
     
+    // turns alarm on and off
     
-    @IBAction func alarmSwitch(_ sender: UISwitch) {
-    }
+//    @IBAction func alarmSwitch(_ sender: UISwitch) {
+//
+//        if sender.isOn == true {
+//
+//            alarmONOFF![IndexPath.row] == true
+//
+//        } else {
+//
+//            alarmONOFF![IndexPath.row] == false
+//
+//        }
+//
+//    }
     
     
     override func awakeFromNib() {

@@ -19,6 +19,7 @@ class CustomAlarmTableViewCell: UITableViewCell {
     @IBOutlet var alarmSwitchOutlet: UISwitch!
     
     
+    // turns alarm on and off
     
     @IBAction func alarmSwitch(_ sender: UISwitch) {
         

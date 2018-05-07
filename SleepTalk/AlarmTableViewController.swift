@@ -13,6 +13,7 @@ import UIKit
 // this tutorial establishes memory persistance https://www.youtube.com/watch?v=V9kgI0ebUZ0 
 
 class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     
     var classAlarmTimer = AlarmTimer()
     var audio:[Audio]? = nil
@@ -48,33 +49,40 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
         
         cell.timeLabel.text = timerLabelArray![indexPath.row]
         
-//        if classDataHolder.alarmNameArray.count != 0 {
-//        cell.alarmNameLabel.text = classDataHolder.alarmNameArray[indexPath.row]
-//
-//        } else {
-//
-//         cell.alarmNameLabel.text = elements[indexPath.row]
-//
-//
-//        }
-//
-//        cell.audioNameLabel.text = elements[indexPath.row]
-//
-//
-//        if classDataHolder.timerLabelArray.count != 0 {
-//        cell.timeLabel.text = classDataHolder.timerLabelArray[indexPath.row]
-//
-//        } else {
-//
-//            cell.alarmNameLabel.text = elements[indexPath.row]
-//
-//
-//        }
+        //here is programatically switch make to the table view
+        let switchView = UISwitch(frame: .zero)
+        switchView.setOn(false, animated: true)
         
-        //cell.timeLabel.text = elements[indexPath.row]
+        
+        
+        switchView.tag = indexPath.row // for detect which row switch Changed
+        switchView.addTarget(self, action: #selector(self.switchChanged(_:)), for: .valueChanged)
+        cell.accessoryView = switchView
+        
         
         return cell
         
+        
+    }
+    
+    // tutorial? https://stackoverflow.com/questions/47038673/add-switch-in-uitableview-cell-in-swift
+    
+    
+    
+    @objc func switchChanged(_ sender : UISwitch!){
+        
+        print("table row switch Changed \(sender.tag)")
+        print("The switch is \(sender.isOn ? "ON" : "OFF")")
+        
+            if sender.isOn == true {
+            
+                alarmONOFF![sender.tag] = true
+            
+        } else {
+            
+                       alarmONOFF![sender.tag] = false
+            
+        }
         
     }
     

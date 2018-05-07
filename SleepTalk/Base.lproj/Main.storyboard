@@ -100,7 +100,7 @@
                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pbn-eS-9xt">
                                                             <rect key="frame" x="276" y="24" width="51" height="31"/>
                                                             <connections>
-                                                                <action selector="alarmSwitch:" destination="Ibh-JX-y8W" eventType="valueChanged" id="ezQ-Um-PD8"/>
+                                                                <action selector="alarmSwitch:" destination="ei0-1b-rej" eventType="valueChanged" id="zGU-Ai-X7k"/>
                                                             </connections>
                                                         </switch>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YOA-Dz-N50">
@@ -146,7 +146,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="alarmNameLabel" destination="UL8-gR-FLB" id="bX1-sE-CTi"/>
-                                            <outlet property="alarmSwitchOutlet" destination="pbn-eS-9xt" id="byy-Ha-ebY"/>
+                                            <outlet property="alarmSwitchOutlet" destination="pbn-eS-9xt" id="Y6p-iQ-jId"/>
                                             <outlet property="audioNameLabel" destination="Bmb-o3-UGq" id="BSY-IS-ww8"/>
                                             <outlet property="cellView" destination="Cpk-8D-ovj" id="kzm-mV-lfH"/>
                                             <outlet property="timeLabel" destination="YOA-Dz-N50" id="div-si-Xvf"/>
@@ -266,7 +266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53G-Ht-uVp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-442.39999999999998" y="626.60098522167493"/>
+            <point key="canvasLocation" x="-447" y="654"/>
         </scene>
         <!--AddRecording-->
         <scene sceneID="4m8-dX-662">

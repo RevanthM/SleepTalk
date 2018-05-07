@@ -15,11 +15,11 @@ import UIKit
 class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
+    
     var classAlarmTimer = AlarmTimer()
     var audio:[Audio]? = nil
     @IBOutlet var alarmTableView: UITableView!
-    
-    
+    @IBOutlet weak var editButton: UIButton!
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
@@ -33,6 +33,18 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
         
+    }
+    
+    
+    @IBAction func tapEdit(_ sender: Any) {
+        print("ya")
+        alarmTableView.isEditing = !alarmTableView.isEditing
+        switch alarmTableView.isEditing {
+        case true:
+            editButton.setTitle("done", for: UIControlState .normal)
+        case false:
+            editButton.setTitle("edit", for: UIControlState .normal)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -100,7 +112,7 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
         
         
         
-        if (CoreDataHandler.saveObject(audioName: "Test"))
+        /*if (CoreDataHandler.saveObject(audioName: "Test"))
         {
             audio = CoreDataHandler.fetchObject()
             
@@ -122,11 +134,24 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
         if CoreDataHandler.cleanDelete() {
             audio = CoreDataHandler.fetchObject()
             print(audio?.count)
-        }
+        }*/
     }
     
     
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let item = timerLabelArray![sourceIndexPath.row]
+        timerLabelArray?.remove(at: sourceIndexPath.row)
+        timerLabelArray?.insert(item, at: destinationIndexPath.row)
+        
+        
+        
+    }
+    
+
     
     
 
@@ -134,6 +159,8 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+
     
 
     /*

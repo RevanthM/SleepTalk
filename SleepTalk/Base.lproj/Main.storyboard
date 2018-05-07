@@ -166,6 +166,16 @@
                         <viewLayoutGuide key="safeArea" id="4H0-Gq-vcp"/>
                     </view>
                     <navigationItem key="navigationItem" id="nMe-RP-iBX">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="8z1-6o-s1Q">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ozh-f9-W8Q">
+                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="tapEdit:" destination="ei0-1b-rej" eventType="touchUpInside" id="dlk-90-nPV"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="vb2-Zy-M3b">
                             <connections>
                                 <segue destination="doo-EF-KKJ" kind="show" id="Wer-lg-ETU"/>
@@ -174,6 +184,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="alarmTableView" destination="yRb-Gh-zTo" id="598-Ta-7Fl"/>
+                        <outlet property="editButton" destination="Ozh-f9-W8Q" id="w8Q-TP-efp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQX-ew-7a4" userLabel="First Responder" sceneMemberID="firstResponder"/>

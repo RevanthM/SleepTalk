@@ -22,9 +22,6 @@ class AlarmTimer {
         alarmTimer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(runAlarmTimer), userInfo: nil, repeats: true)
 
 
-
-
-
     }
 
     @objc func runAlarmTimer() {
@@ -58,7 +55,21 @@ class AlarmTimer {
             AMPMCheck = "AM"
         }
         
-        //
+        //loop to check which alarms are on/off
+        
+        for i in 0 ... alarmONOFF!.count
+        {
+            if (i > 0)
+            {
+                if (alarmONOFF![i-1] == true )
+                {
+                    print("alarm \(i) is on")
+                    //play audio
+                } else {
+                    print("alarm \(i) is off")
+                }
+            }
+        }
         
         print(AMPMCheck)
         
@@ -72,6 +83,8 @@ class AlarmTimer {
         print(selectedHourArray)
         print(selectedMinuteArray)
         print(selectedAMPMArray)
+        
+        
         
     }
     

@@ -15,10 +15,7 @@ import UIKit
 class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var classAlarmTimer = AlarmTimer()
-    
-    
-    
-    
+    var audio:[Audio]? = nil
     @IBOutlet var alarmTableView: UITableView!
     
     
@@ -93,7 +90,37 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
         //starts timer
         classAlarmTimer.alarmTimerFunction()
         
+        
+        
+        if (CoreDataHandler.saveObject(audioName: "Test"))
+        {
+            audio = CoreDataHandler.fetchObject()
+            
+            for i in audio! {
+                print(i.audioName!)
+            }
+        }
+        
+        if (CoreDataHandler.deleteObject(audio: audio![1]))
+        {
+            audio = CoreDataHandler.fetchObject()
+            print("Deleted object")
+            for i in audio! {
+                print(i.audioName!)
+            }
+            print(audio?.count)
+        }
+        
+        if CoreDataHandler.cleanDelete() {
+            audio = CoreDataHandler.fetchObject()
+            print(audio?.count)
+        }
     }
+    
+    
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

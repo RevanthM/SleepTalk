@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BD1B046209F857B0084CEA5 /* CoreDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD1B045209F857B0084CEA5 /* CoreDataHandler.swift */; };
 		F22D1D65209E379200ED6D2B /* AlarmTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22D1D64209E379200ED6D2B /* AlarmTimer.swift */; };
 		F23AF0DE208D4C8200F7E757 /* AddAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23AF0DD208D4C8200F7E757 /* AddAlarmViewController.swift */; };
 		F23D9DC720891CEF00E3F6BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D9DC620891CEF00E3F6BD /* AppDelegate.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1BD1B045209F857B0084CEA5 /* CoreDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHandler.swift; sourceTree = "<group>"; };
 		F22D1D64209E379200ED6D2B /* AlarmTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTimer.swift; sourceTree = "<group>"; };
 		F23AF0DD208D4C8200F7E757 /* AddAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmViewController.swift; sourceTree = "<group>"; };
 		F23D9DC320891CEF00E3F6BD /* SleepTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +121,7 @@
 				F296524B2090E51F002336B0 /* AlarmTableViewController.swift */,
 				F296524D209250D0002336B0 /* DataHolder.swift */,
 				F296524F20925745002336B0 /* CustomAlarmTableViewCell.swift */,
+				1BD1B045209F857B0084CEA5 /* CoreDataHandler.swift */,
 				F23D9DCA20891CEF00E3F6BD /* Main.storyboard */,
 				F23D9DD020891CEF00E3F6BD /* Assets.xcassets */,
 				F23D9DD220891CEF00E3F6BD /* LaunchScreen.storyboard */,
@@ -278,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F23D9DCF20891CEF00E3F6BD /* SleepTalk.xcdatamodeld in Sources */,
+				1BD1B046209F857B0084CEA5 /* CoreDataHandler.swift in Sources */,
 				F296524C2090E51F002336B0 /* AlarmTableViewController.swift in Sources */,
 				F23D9DC920891CEF00E3F6BD /* ViewController.swift in Sources */,
 				F23AF0DE208D4C8200F7E757 /* AddAlarmViewController.swift in Sources */,
@@ -459,7 +463,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K2R6W9P99E;
+				DEVELOPMENT_TEAM = 9MF6LAF8FW;
 				INFOPLIST_FILE = SleepTalk/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -478,7 +482,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K2R6W9P99E;
+				DEVELOPMENT_TEAM = 9MF6LAF8FW;
 				INFOPLIST_FILE = SleepTalk/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

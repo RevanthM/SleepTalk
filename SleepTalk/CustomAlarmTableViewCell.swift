@@ -21,6 +21,7 @@ class CustomAlarmTableViewCell: UITableViewCell {
     
     
     @IBAction func alarmSwitch(_ sender: UISwitch) {
+        
     }
     
     

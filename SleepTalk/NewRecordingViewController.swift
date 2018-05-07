@@ -31,19 +31,9 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
     //variable so audionameTF isn't nil
     var audioName = "myRecording.m4a"
     
-    
-    
-    
-  
-   
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         check_record_permission()
-        
-        
     }
     
     func check_record_permission()

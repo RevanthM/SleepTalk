@@ -61,15 +61,17 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
         
         cell.timeLabel.text = timerLabelArray![indexPath.row]
         
-        //here is programatically switch make to the table view
-        let switchView = UISwitch(frame: .zero)
-        switchView.setOn(false, animated: true)
+        cell.alarmSwitchOutlet.tag = indexPath.row
         
-        
-        
-        switchView.tag = indexPath.row // for detect which row switch Changed
-        switchView.addTarget(self, action: #selector(self.switchChanged(_:)), for: .valueChanged)
-        cell.accessoryView = switchView
+//        //here is programatically switch make to the table view
+//        let switchView = UISwitch(frame: .zero)
+//        switchView.setOn(false, animated: true)
+//
+//
+//
+//        switchView.tag = indexPath.row // for detect which row switch Changed
+//        switchView.addTarget(self, action: #selector(self.switchChanged(_:)), for: .valueChanged)
+//        cell.accessoryView = switchView
         
         
         return cell
@@ -81,22 +83,22 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     
-    @objc func switchChanged(_ sender : UISwitch!){
-        
-        print("table row switch Changed \(sender.tag)")
-        print("The switch is \(sender.isOn ? "ON" : "OFF")")
-        
-            if sender.isOn == true {
-            
-                alarmONOFF![sender.tag] = true
-            
-        } else {
-            
-                       alarmONOFF![sender.tag] = false
-            
-        }
-        
-    }
+//    @objc func switchChanged(_ sender : UISwitch!){
+//
+//        print("table row switch Changed \(sender.tag)")
+//        print("The switch is \(sender.isOn ? "ON" : "OFF")")
+//
+//            if sender.isOn == true {
+//
+//                alarmONOFF![sender.tag] = true
+//
+//        } else {
+//
+//                       alarmONOFF![sender.tag] = false
+//
+//        }
+//
+//    }
     
 
     override func viewDidLoad() {

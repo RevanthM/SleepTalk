@@ -100,7 +100,7 @@
                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pbn-eS-9xt">
                                                             <rect key="frame" x="276" y="24" width="51" height="31"/>
                                                             <connections>
-                                                                <action selector="alarmSwitch:" destination="ei0-1b-rej" eventType="valueChanged" id="zGU-Ai-X7k"/>
+                                                                <action selector="alarmSwitch:" destination="Ibh-JX-y8W" eventType="valueChanged" id="5HK-Jh-27x"/>
                                                             </connections>
                                                         </switch>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YOA-Dz-N50">

@@ -23,6 +23,18 @@ class CustomAlarmTableViewCell: UITableViewCell {
     
     @IBAction func alarmSwitch(_ sender: UISwitch) {
         
+        print(alarmSwitchOutlet.tag)
+        
+        if alarmSwitchOutlet.isOn == true {
+            
+                            alarmONOFF![alarmSwitchOutlet.tag] = true
+            
+                    } else {
+            
+                                   alarmONOFF![alarmSwitchOutlet.tag] = false
+            
+                    }
+        
     }
     
     

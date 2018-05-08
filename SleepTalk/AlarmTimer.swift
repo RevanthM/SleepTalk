@@ -83,6 +83,7 @@ class AlarmTimer {
         print(selectedHourArray)
         print(selectedMinuteArray)
         print(selectedAMPMArray)
+        print(alarmONOFF)
         
         
         

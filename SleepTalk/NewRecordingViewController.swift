@@ -14,12 +14,13 @@ import AVFoundation
 
 class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
+    @IBOutlet var audioNameTextField: UITextField!
     @IBOutlet var recordingTimeLabel: UILabel!
     @IBOutlet var record_btn_ref: UIButton!
     @IBOutlet var play_btn_ref: UIButton!
     
     //outlet that gives filename a value.
-    @IBOutlet var audioNameTF: UITextField!
+    //@IBOutlet var audioNameTF: UITextField! see audioNameTextField
     
     
     var audioRecorder: AVAudioRecorder!
@@ -34,6 +35,9 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
     override func viewDidLoad() {
         super.viewDidLoad()
         check_record_permission()
+        addToolBar(textField: audioNameTextField)
+        
+        
     }
     
     func check_record_permission()
@@ -268,3 +272,5 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
     */
 
 }
+
+

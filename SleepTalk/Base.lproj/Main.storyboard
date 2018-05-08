@@ -338,6 +338,7 @@
                         <viewLayoutGuide key="safeArea" id="IaW-gg-Jye"/>
                     </view>
                     <connections>
+                        <outlet property="audioNameTextField" destination="4Q8-kI-MIK" id="rC3-5q-wio"/>
                         <outlet property="play_btn_ref" destination="vY7-9l-bNA" id="zSa-Xy-ueQ"/>
                         <outlet property="record_btn_ref" destination="joz-SY-1a3" id="WyU-n7-jTQ"/>
                         <outlet property="recordingTimeLabel" destination="N23-rM-und" id="tD1-kz-DJQ"/>

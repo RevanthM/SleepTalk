@@ -63,6 +63,8 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
         
         cell.alarmSwitchOutlet.tag = indexPath.row
         
+        cell.alarmSwitchOutlet.isOn = alarmONOFF![indexPath.row]
+        
 //        //here is programatically switch make to the table view
 //        let switchView = UISwitch(frame: .zero)
 //        switchView.setOn(false, animated: true)

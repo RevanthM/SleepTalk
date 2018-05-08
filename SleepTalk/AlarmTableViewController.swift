@@ -41,9 +41,9 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
         alarmTableView.isEditing = !alarmTableView.isEditing
         switch alarmTableView.isEditing {
         case true:
-            editButton.setTitle("done", for: UIControlState .normal)
+            editButton.setTitle("Done", for: UIControlState .normal)
         case false:
-            editButton.setTitle("edit", for: UIControlState .normal)
+            editButton.setTitle("Edit", for: UIControlState .normal)
         }
     }
     

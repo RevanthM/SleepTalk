@@ -151,10 +151,18 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
         timerLabelArray?.remove(at: sourceIndexPath.row)
         timerLabelArray?.insert(item, at: destinationIndexPath.row)
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     
+        alarmclicked = String(indexPath.row)
+        performSegue(withIdentifier: "alarmSegue", sender: self)
         
         
     }
     
+    
+    // select a row and transition view tutorial  https://www.youtube.com/watch?v=5js6nwDcedE start from 8:00 minutes
 
     
     

@@ -179,7 +179,8 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="vb2-Zy-M3b">
                             <connections>
-                                <segue destination="doo-EF-KKJ" kind="show" id="Wer-lg-ETU"/>
+                                <action selector="addAlarmButton:" destination="xVQ-PB-Qne" id="oJz-9h-pyL"/>
+                                <segue destination="doo-EF-KKJ" kind="show" identifier="alarmSegue" id="Wer-lg-ETU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -189,6 +190,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQX-ew-7a4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="xVQ-PB-Qne" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1340" y="653.94088669950747"/>
         </scene>

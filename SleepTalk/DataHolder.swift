@@ -8,6 +8,9 @@
 
 import Foundation
 
+    // tracks clicked alarmcell
+    var alarmclicked = ""
+
 
     var currentTime = ""
     // setting up arrays screen by screen

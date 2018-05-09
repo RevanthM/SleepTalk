@@ -21,7 +21,25 @@ class CustomAlarmTableViewCell: UITableViewCell {
     
     // turns alarm on and off
     
+    @IBAction func addAlarmButton(_ sender: UIBarButtonItem) {
+        alarmclicked = ""
+        print(alarmclicked)
+    }
+    
+    
     @IBAction func alarmSwitch(_ sender: UISwitch) {
+        
+        print(alarmSwitchOutlet.tag)
+        
+        if alarmSwitchOutlet.isOn == true {
+            
+                            alarmONOFF![alarmSwitchOutlet.tag] = true
+            
+                    } else {
+            
+                                   alarmONOFF![alarmSwitchOutlet.tag] = false
+            
+                    }
         
     }
     

@@ -124,6 +124,9 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBAction func saveButton(_ sender: UIButton) {
         
         // this doesn't do anything???
+        
+        if alarmclicked == "" {
+        
         if  (addAlarmTextField.text != nil) && addAlarmTextField.text != "" {
             
             addAlarmTextFieldArray?.append(addAlarmTextField.text!)
@@ -187,7 +190,26 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         // navigates back to previous screen
     self.navigationController?.popViewController(animated: true)
-        
+        } else {
+            
+            timerLabelArray![Int(alarmclicked)!] = timeLabel.text!
+            
+            selectedMinuteArray![Int(alarmclicked)!] = Int(selectedMinute)!
+            
+            selectedHourArray![Int(alarmclicked)!] = Int(selectedHour)!
+            
+            if  selectedAMPM == "0" {
+                
+                selectedAMPMArray![Int(alarmclicked)!] = "AM"
+                // fixes bug that assigns zero value to AMPM global variable
+            } else {
+                
+                selectedAMPMArray![Int(alarmclicked)!] = selectedAMPM
+            }
+            
+            self.navigationController?.popViewController(animated: true)
+            
+        }
         
         
     }
@@ -201,7 +223,8 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         
         let numAlarms = timerLabelArray?.count
-        addAlarmTextField.text = "Alarm \(numAlarms!+1)"//Default text in case user forgets to assign custom name
+        
+   //     addAlarmTextField.text = "Alarm \(numAlarms!+1)"//Default text in case user forgets to assign custom name
         addToolBar(textField: addAlarmTextField)
 //        //
         
@@ -211,7 +234,26 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        if alarmclicked == "" {
+        addAlarmTextField.text = "Alarm \(numAlarms!+1)"//Default text in case user forgets to assign custom name
         setDefaultPickerValues()
+
+            
+        }
+        addAlarmTextField.text = "Alarm \(Int(alarmclicked)!+1)"
+        timePickerView.selectRow((selectedHourArray![(Int(alarmclicked)!)]-1) , inComponent: 0, animated: true)
+        timePickerView.selectRow(selectedMinuteArray![Int(alarmclicked)!] , inComponent: 1, animated: true)
+        
+        if selectedAMPMArray![Int(alarmclicked)!] == "AM" {
+            timePickerView.selectRow(0 , inComponent: 2, animated: true)
+            
+        } else {
+            timePickerView.selectRow(1 , inComponent: 2, animated: true)
+        }
+        
+        
+        
     }
     
     func setDefaultPickerValues() //sets picker time to current time
@@ -318,11 +360,6 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     
 
-    
-    
-    
-    
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

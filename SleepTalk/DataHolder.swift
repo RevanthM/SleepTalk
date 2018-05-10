@@ -44,6 +44,7 @@ import Foundation
     
     var audioNameDurationDictionary:[String : Int]?
 
+    var audioFileNameArray:[String]?
 
 
 
@@ -53,6 +54,12 @@ import Foundation
 func saveDataTimerLabelArray(timerLabelArray:[String]) {
     
     UserDefaults.standard.set(timerLabelArray, forKey: "timerLabelArray")
+    
+}
+
+func saveAudioNameArray(audioFileNameArray:[String]) {
+    
+    UserDefaults.standard.set(audioStringArray, forKey: "audioStringArray")
     
 }
 
@@ -107,6 +114,20 @@ func fetchDataTimerLabelArray() -> [String]? {
     {
         
         return todoTimerLabelArray
+    } else {
+        
+        return nil
+        
+    }
+    
+}
+
+func fetchAudioStringArray() -> [String]? {
+    
+    if let todoAudioStringArray = UserDefaults.standard.array(forKey: "audioStringArray") as?  [String]
+    {
+        
+        return todoAudioStringArray
     } else {
         
         return nil

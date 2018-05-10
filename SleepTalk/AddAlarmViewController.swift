@@ -235,6 +235,7 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 
         // Do any additional setup after loading the view.
         
+/*
         if alarmclicked == "" {
         addAlarmTextField.text = "Alarm \(numAlarms!+1)"//Default text in case user forgets to assign custom name
         setDefaultPickerValues()
@@ -262,7 +263,7 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         } else {
             selectedAMPM = "PM"
         }
-        
+        */
         timeLabel.text = "Time: \(selectedHour) : \(selectedMinute) : \(selectedAMPM) "
     }
     

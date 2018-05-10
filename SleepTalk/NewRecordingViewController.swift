@@ -11,6 +11,7 @@ import AVFoundation
 
 // i followed this tutorial https://stackoverflow.com/questions/26472747/recording-audio-in-swift to incorporate the audio recordings... There are two answers relevent to implementation of swift 3.0 code which I then modified to conform to swift 4.0 standards.
 
+var audioStringArray=[String]() //global array loaded from nsuserdefaults
 
 class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
@@ -29,14 +30,14 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
     var isAudioRecordingGranted: Bool!
     var isRecording = false
     var isPlaying = false
-    //variable so audionameTF isn't nil
-    var audioName = "myRecording.m4a"
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         check_record_permission()
         addToolBar(textField: audioNameTextField)
-        
+        audioStringArray = 
         
     }
     
@@ -85,9 +86,22 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
         let fileManager = FileManager.default
         let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
         let documentDirectory = urls[0] as NSURL
-        let soundURL = getDocumentsDirectory().appendingPathComponent("capturedAudio.m4a")
+        let date = NSDate()
+        var dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "ddhhss"
+        
+        var dateString = dateFormatter.string(from: date as Date)
+        dateString.append(".m4a")
+        print("Date String:" + dateString)
+        
+        let soundURL = getDocumentsDirectory().appendingPathComponent(dateString)
+        
         return soundURL
     }
+    
+    
+    
+    
    
     
     //Setup the recorder
@@ -107,8 +121,12 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
                     AVNumberOfChannelsKey: 2,
                     AVEncoderAudioQualityKey:AVAudioQuality.high.rawValue
                 ]
+                
+                
                 unowned let myself = self
                 audioRecorder = try AVAudioRecorder(url: myself.directoryURL(), settings: settings)
+                audioStringArray.append(myself.directoryURL().absoluteString)
+                print("Appended:" + myself.directoryURL().absoluteString)
                 audioRecorder.delegate = self
                 audioRecorder.isMeteringEnabled = true
                 audioRecorder.prepareToRecord()
@@ -181,7 +199,9 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
     {
         do
         {
-            audioPlayer = try AVAudioPlayer(contentsOf: getFileUrl())
+            let tempURL = URL(fileURLWithPath: audioStringArray[0]) //temporarily set to index 0 for testing purposes
+            audioPlayer = try AVAudioPlayer(contentsOf: tempURL)
+            print("Attempting to play:" + tempURL.absoluteString)
             audioPlayer.delegate = self
             audioPlayer.prepareToPlay()
         }
@@ -202,15 +222,18 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
         }
         else
         {
-            if FileManager.default.fileExists(atPath: getFileUrl().path)
+            let tempURL = URL(fileURLWithPath: audioStringArray[0])
+            print("TempURL:" + tempURL.absoluteString)
+            if FileManager.default.fileExists(atPath: tempURL.path)
             {
+                print("The file exists")
                 record_btn_ref.isEnabled = false
                 play_btn_ref.setTitle("Pause", for: .normal)
                 play_btn_ref.sizeToFit();
                 prepare_play()
                 audioPlayer.play()
                 isPlaying = true
-            }
+           }
             else
             {
                 display_alert(msg_title: "Error", msg_desc: "Audio file is missing.", action_title: "OK")

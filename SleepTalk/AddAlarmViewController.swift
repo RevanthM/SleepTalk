@@ -254,8 +254,16 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         if alarmclicked != "" {
             selectedMinute = minutes[selectedMinuteArray![Int(alarmclicked)!]]
         
-            selectedHour = hours[selectedHourArray![Int(alarmclicked)!]]
+            selectedHour = hours[selectedHourArray![Int(alarmclicked)!]-1]
         }
+        if Int(selectedAMPM) == 0 {
+            selectedAMPM = "AM"
+            
+        } else {
+            selectedAMPM = "PM"
+        }
+        
+        timeLabel.text = "Time: \(selectedHour) : \(selectedMinute) : \(selectedAMPM) "
     }
     
     func setDefaultPickerValues() //sets picker time to current time

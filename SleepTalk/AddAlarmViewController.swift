@@ -251,9 +251,11 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         } else {
             timePickerView.selectRow(1 , inComponent: 2, animated: true)
         }
+        if alarmclicked != "" {
+            selectedMinute = minutes[selectedMinuteArray![Int(alarmclicked)!]]
         
-        
-        
+            selectedHour = hours[selectedHourArray![Int(alarmclicked)!]]
+        }
     }
     
     func setDefaultPickerValues() //sets picker time to current time

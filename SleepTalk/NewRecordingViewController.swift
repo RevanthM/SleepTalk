@@ -80,6 +80,14 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
         let filePath = getDocumentsDirectory().appendingPathComponent(filename)
         return filePath
     }
+    
+    func directoryURL() -> URL {
+        let fileManager = FileManager.default
+        let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = urls[0] as NSURL
+        let soundURL = getDocumentsDirectory().appendingPathComponent("capturedAudio.m4a")
+        return soundURL
+    }
    
     
     //Setup the recorder
@@ -99,7 +107,8 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
                     AVNumberOfChannelsKey: 2,
                     AVEncoderAudioQualityKey:AVAudioQuality.high.rawValue
                 ]
-                audioRecorder = try AVAudioRecorder(url: getFileUrl(), settings: settings)
+                unowned let myself = self
+                audioRecorder = try AVAudioRecorder(url: myself.directoryURL(), settings: settings)
                 audioRecorder.delegate = self
                 audioRecorder.isMeteringEnabled = true
                 audioRecorder.prepareToRecord()

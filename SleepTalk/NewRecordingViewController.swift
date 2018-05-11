@@ -11,7 +11,7 @@ import AVFoundation
 
 // i followed this tutorial https://stackoverflow.com/questions/26472747/recording-audio-in-swift to incorporate the audio recordings... There are two answers relevent to implementation of swift 3.0 code which I then modified to conform to swift 4.0 standards.
 
-var audioStringArray=[String]() //global array loaded from nsuserdefaults
+
 
 class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
@@ -30,15 +30,16 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
     var isAudioRecordingGranted: Bool!
     var isRecording = false
     var isPlaying = false
-    
-    
+    var audioData:NSData?
+    var audioStringArray=[String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         check_record_permission()
         addToolBar(textField: audioNameTextField)
-        audioStringArray = 
         
+        audioData = fetchAudioData()
+        audioStringArray = fetchAudioStringArray()!
     }
     
     func check_record_permission()
@@ -93,9 +94,9 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
         var dateString = dateFormatter.string(from: date as Date)
         dateString.append(".m4a")
         print("Date String:" + dateString)
-        
+        audioNameArray!.append(dateString)
         let soundURL = getDocumentsDirectory().appendingPathComponent(dateString)
-        
+        print("Sound URL:"+soundURL.absoluteString)
         return soundURL
     }
     
@@ -186,6 +187,11 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
             audioRecorder = nil
             meterTimer.invalidate()
             print("recorded successfully.")
+            let tempURL = URL(string: audioStringArray[0])
+            audioData = NSData(contentsOf: tempURL!)
+            audioData?.write(to: tempURL!, atomically: true)
+            UserDefaults.standard.set(audioData, forKey: "audioData")
+            UserDefaults.standard.set(audioStringArray, forKey: "audioStringArray")
         }
         else
         {
@@ -199,9 +205,10 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
     {
         do
         {
-            let tempURL = URL(fileURLWithPath: audioStringArray[0]) //temporarily set to index 0 for testing purposes
-            audioPlayer = try AVAudioPlayer(contentsOf: tempURL)
-            print("Attempting to play:" + tempURL.absoluteString)
+            let tempURL = URL(string: audioStringArray[0]) //temporarily set to index 0 for testing purposes
+            print("Attempting to play:" + tempURL!.absoluteString)
+            audioPlayer = try AVAudioPlayer(contentsOf: tempURL!)
+            
             audioPlayer.delegate = self
             audioPlayer.prepareToPlay()
         }
@@ -222,11 +229,10 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
         }
         else
         {
-            let tempURL = URL(fileURLWithPath: audioStringArray[0])
-            print("TempURL:" + tempURL.absoluteString)
-            if FileManager.default.fileExists(atPath: tempURL.path)
+            let tempURL = URL(string: audioStringArray[0])
+            print("TempURL:" + tempURL!.absoluteString)
+            if FileManager.default.fileExists(atPath: tempURL!.path)
             {
-                print("The file exists")
                 record_btn_ref.isEnabled = false
                 play_btn_ref.setTitle("Pause", for: .normal)
                 play_btn_ref.sizeToFit();

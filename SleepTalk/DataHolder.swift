@@ -46,7 +46,9 @@ import Foundation
 
     var audioFileNameArray:[String]?
 
+    var audioData:[NSData]?
 
+    var audioStringArray:[String]?
 
 
 
@@ -100,6 +102,11 @@ func saveDataAudioNameArray(audioNameArray:[String]) {
     
 }
 
+func audioData(audioDataObj:[NSData]) {
+    
+    UserDefaults.standard.set(audioDataObj, forKey: "audioData")
+    
+}
 
 
 
@@ -220,7 +227,17 @@ func fetchDataAudioNameArray() -> [String]? {
     
 }
 
-
-
-
+func fetchAudioData() -> NSData? {
+    
+    if let todoAudioData = UserDefaults.standard.object(forKey: "audioData") as?  NSData
+    {
+        
+        return todoAudioData
+    } else {
+        
+        return nil
+        
+    }
+    
+}
 

@@ -98,6 +98,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
+
+        if let todoAudioStringArray  = fetchAudioStringArray() {
+         
+            audioStringArray = todoAudioStringArray
+            
+        } else {
+            
+            
+            audioStringArray = [String]()
+            
+        }
+        
+        
+        
         return true
     }
 

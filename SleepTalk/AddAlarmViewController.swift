@@ -222,24 +222,25 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     override func viewDidLoad() {
         
         
+        
+        
         let numAlarms = timerLabelArray?.count
         
-   //     addAlarmTextField.text = "Alarm \(numAlarms!+1)"//Default text in case user forgets to assign custom name
+        //     addAlarmTextField.text = "Alarm \(numAlarms!+1)"//Default text in case user forgets to assign custom name
         addToolBar(textField: addAlarmTextField)
-//        //
+        //        //
         
         timePickerView.delegate = self
         timePickerView.dataSource = self
         
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
-/*
         if alarmclicked == "" {
-        addAlarmTextField.text = "Alarm \(numAlarms!+1)"//Default text in case user forgets to assign custom name
-        setDefaultPickerValues()
-
+            addAlarmTextField.text = "Alarm \(numAlarms!+1)"//Default text in case user forgets to assign custom name
+            setDefaultPickerValues()
+            
             
         }
         addAlarmTextField.text = "Alarm \(Int(alarmclicked)!+1)"
@@ -254,18 +255,27 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
         if alarmclicked != "" {
             selectedMinute = minutes[selectedMinuteArray![Int(alarmclicked)!]]
-        
-            selectedHour = hours[selectedHourArray![Int(alarmclicked)!]-1]
-        }
-        if Int(selectedAMPM) == 0 {
-            selectedAMPM = "AM"
             
-        } else {
-            selectedAMPM = "PM"
+                            selectedHour = hours[selectedHourArray![Int(alarmclicked)!]-1]
         }
-        */
-        timeLabel.text = "Time: \(selectedHour) : \(selectedMinute) : \(selectedAMPM) "
+                if Int(selectedAMPM) == 0 {
+                        selectedAMPM = "AM"
+                
+                    } else {
+                        selectedAMPM = "PM"
+                    }
+        
+               timeLabel.text = "Time: \(selectedHour) : \(selectedMinute) : \(selectedAMPM) "
+    
+        
+        
+        
+        
+        
+        
+        
     }
+    
     
     func setDefaultPickerValues() //sets picker time to current time
     {

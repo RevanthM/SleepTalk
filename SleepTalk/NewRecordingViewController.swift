@@ -39,7 +39,7 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
         addToolBar(textField: audioNameTextField)
         
         audioData = fetchAudioData()
-        audioStringArray = fetchAudioStringArray()!
+       // audioStringArray = fetchAudioStringArray()!
     }
     
     func check_record_permission()

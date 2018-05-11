@@ -242,8 +242,10 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             setDefaultPickerValues()
             
             
-        }
-        addAlarmTextField.text = "Alarm \(Int(alarmclicked)!+1)"
+        } else {      addAlarmTextField.text = "Alarm \(Int(alarmclicked)!+1)"
+        
+        
+        
         timePickerView.selectRow((selectedHourArray![(Int(alarmclicked)!)]-1) , inComponent: 0, animated: true)
         timePickerView.selectRow(selectedMinuteArray![Int(alarmclicked)!] , inComponent: 1, animated: true)
         
@@ -274,6 +276,7 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         
         
+    }
     }
     
     

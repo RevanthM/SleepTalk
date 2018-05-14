@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         } else {
             
-            
             timerLabelArray = [String]()
             
         }

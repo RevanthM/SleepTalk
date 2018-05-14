@@ -224,11 +224,13 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let numAlarms = timerLabelArray?.count
         
         //     addAlarmTextField.text = "Alarm \(numAlarms!+1)"//Default text in case user forgets to assign custom name
-        addToolBar(textField: addAlarmTextField)
+       
         //        //
         
+        addToolBar(textField: addAlarmTextField)
         timePickerView.delegate = self
         timePickerView.dataSource = self
+    
         
         super.viewDidLoad()
         
@@ -274,6 +276,7 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         
     }
+
     }
     
     

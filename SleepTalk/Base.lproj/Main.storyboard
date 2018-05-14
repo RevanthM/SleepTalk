@@ -178,18 +178,11 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <button key="titleView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nUa-sL-FYS">
-                            <rect key="frame" x="164.66666666666666" y="7" width="46" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
-                            <connections>
-                                <segue destination="doo-EF-KKJ" kind="show" identifier="alarmSegue" id="6SA-5n-6tJ"/>
-                            </connections>
-                        </button>
                     </navigationItem>
                     <connections>
                         <outlet property="alarmTableView" destination="yRb-Gh-zTo" id="598-Ta-7Fl"/>
                         <outlet property="editButton" destination="Ozh-f9-W8Q" id="w8Q-TP-efp"/>
+                        <segue destination="doo-EF-KKJ" kind="show" identifier="alarmSegue" id="E3D-5T-fsC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQX-ew-7a4" userLabel="First Responder" sceneMemberID="firstResponder"/>

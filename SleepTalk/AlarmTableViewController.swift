@@ -178,7 +178,10 @@ navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, t
      
         alarmclicked = String(indexPath.row)
         performSegue(withIdentifier: "alarmSegue", sender: self)
-        
+    //   navigationController?.pushViewController(AddAlarmViewController(), animated: false)
+       
+      //  present(AddAlarmViewController(), animated: false, completion: nil)
+
         
     }
     

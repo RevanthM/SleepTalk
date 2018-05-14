@@ -221,9 +221,6 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     override func viewDidLoad() {
         
-        
-        
-        
         let numAlarms = timerLabelArray?.count
         
         //     addAlarmTextField.text = "Alarm \(numAlarms!+1)"//Default text in case user forgets to assign custom name
@@ -242,7 +239,7 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             setDefaultPickerValues()
             
             
-        } else {      addAlarmTextField.text = "Alarm \(Int(alarmclicked)!+1)"
+        } else {  addAlarmTextField.text = "Alarm \(Int(alarmclicked)!+1)"
         
         
         

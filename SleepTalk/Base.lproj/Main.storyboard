@@ -166,6 +166,7 @@
                         <viewLayoutGuide key="safeArea" id="4H0-Gq-vcp"/>
                     </view>
                     <navigationItem key="navigationItem" id="nMe-RP-iBX">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="8z1-6o-s1Q">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ozh-f9-W8Q">
                                 <rect key="frame" x="16" y="5.6666666666666679" width="83" height="33"/>
@@ -177,12 +178,14 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="vb2-Zy-M3b">
+                        <button key="titleView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nUa-sL-FYS">
+                            <rect key="frame" x="164.66666666666666" y="7" width="46" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
                             <connections>
-                                <action selector="addAlarmButton:" destination="xVQ-PB-Qne" id="oJz-9h-pyL"/>
-                                <segue destination="doo-EF-KKJ" kind="show" identifier="alarmSegue" id="Wer-lg-ETU"/>
+                                <segue destination="doo-EF-KKJ" kind="show" identifier="alarmSegue" id="6SA-5n-6tJ"/>
                             </connections>
-                        </barButtonItem>
+                        </button>
                     </navigationItem>
                     <connections>
                         <outlet property="alarmTableView" destination="yRb-Gh-zTo" id="598-Ta-7Fl"/>
@@ -190,14 +193,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQX-ew-7a4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="xVQ-PB-Qne" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-1340" y="653.94088669950747"/>
         </scene>
         <!--AddAlarm-->
         <scene sceneID="DcU-BM-4cm">
             <objects>
-                <viewController id="doo-EF-KKJ" userLabel="AddAlarm" customClass="AddAlarmViewController" customModule="SleepTalk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="AddAlarmViewController" storyboardIdentifier="AddAlarmViewController" title="AddAlarmViewController" id="doo-EF-KKJ" userLabel="AddAlarm" customClass="AddAlarmViewController" customModule="SleepTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E32-D9-QN5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

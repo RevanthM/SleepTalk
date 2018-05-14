@@ -20,6 +20,10 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
     var audio:[Audio]? = nil
     @IBOutlet var alarmTableView: UITableView!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet var plusButton: UIBarButtonItem!
+    
+    
+    
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
@@ -116,6 +120,7 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
         
         
         
+        
         /*if (CoreDataHandler.saveObject(audioName: "Test"))
         {
             audio = CoreDataHandler.fetchObject()
@@ -139,8 +144,24 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
             audio = CoreDataHandler.fetchObject()
             print(audio?.count)
         }*/
+        
+  //  navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add",style: .plain, target: self, action: #selector(addTapped))
+        
+       // plusButton.action: #selector(addTapped())
+        
+navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(AlarmTableViewController.addTapped))
+        
+        
+    //    let newViewController = AddAlarmViewController()
+       // self.navigationController?.pushViewController(AddAlarmViewController, animated: true)
     }
     
+//    @objc func addTapped() {
+//        alarmclicked = ""
+//
+//        self.performSegue(withIdentifier: "AddAlarmViewController", sender: AnyObject)
+//        print("alarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclicked")
+//    }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -160,6 +181,36 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
         
         
     }
+    
+    @objc func addTapped() {
+                alarmclicked = ""
+        
+      
+                print("alarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclicked")
+        
+        let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddAlarmViewController") as! AddAlarmViewController
+        
+        self.navigationController?.pushViewController(loginVC, animated: true)
+
+        
+            }
+
+    
+    @IBAction func addAlarmButton(_ sender: Any) {
+    //    addpressed()
+        print("alarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclickedalarmclicked")
+        
+        
+    }
+    
+
+    
+    
+    
+    
+    
+    
+    
     
     
     // select a row and transition view tutorial  https://www.youtube.com/watch?v=5js6nwDcedE start from 8:00 minutes

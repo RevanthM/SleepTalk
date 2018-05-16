@@ -20,7 +20,6 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
     var audio:[Audio]? = nil
     @IBOutlet var alarmTableView: UITableView!
     @IBOutlet weak var editButton: UIButton!
-    @IBOutlet var plusButton: UIBarButtonItem!
     
     
     

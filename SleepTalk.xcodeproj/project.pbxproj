@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1BD1B046209F857B0084CEA5 /* CoreDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD1B045209F857B0084CEA5 /* CoreDataHandler.swift */; };
+		F223427320AA56FC008EEDBC /* AudioTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F223427220AA56FC008EEDBC /* AudioTableViewController.swift */; };
 		F22D1D65209E379200ED6D2B /* AlarmTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22D1D64209E379200ED6D2B /* AlarmTimer.swift */; };
 		F23AF0DE208D4C8200F7E757 /* AddAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23AF0DD208D4C8200F7E757 /* AddAlarmViewController.swift */; };
 		F23D9DC720891CEF00E3F6BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D9DC620891CEF00E3F6BD /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 		F296524C2090E51F002336B0 /* AlarmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F296524B2090E51F002336B0 /* AlarmTableViewController.swift */; };
 		F296524E209250D0002336B0 /* DataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F296524D209250D0002336B0 /* DataHolder.swift */; };
 		F296525020925745002336B0 /* CustomAlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F296524F20925745002336B0 /* CustomAlarmTableViewCell.swift */; };
+		F2BB20F520AACF7F003DBEEE /* CustomAudioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BB20F420AACF7F003DBEEE /* CustomAudioTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		1BD1B045209F857B0084CEA5 /* CoreDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHandler.swift; sourceTree = "<group>"; };
+		F223427220AA56FC008EEDBC /* AudioTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTableViewController.swift; sourceTree = "<group>"; };
 		F22D1D64209E379200ED6D2B /* AlarmTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTimer.swift; sourceTree = "<group>"; };
 		F23AF0DD208D4C8200F7E757 /* AddAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmViewController.swift; sourceTree = "<group>"; };
 		F23D9DC320891CEF00E3F6BD /* SleepTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +66,7 @@
 		F296524B2090E51F002336B0 /* AlarmTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewController.swift; sourceTree = "<group>"; };
 		F296524D209250D0002336B0 /* DataHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHolder.swift; sourceTree = "<group>"; };
 		F296524F20925745002336B0 /* CustomAlarmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlarmTableViewCell.swift; sourceTree = "<group>"; };
+		F2BB20F420AACF7F003DBEEE /* CustomAudioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAudioTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,15 +117,17 @@
 		F23D9DC520891CEF00E3F6BD /* SleepTalk */ = {
 			isa = PBXGroup;
 			children = (
-				F22D1D64209E379200ED6D2B /* AlarmTimer.swift */,
 				F23D9DC620891CEF00E3F6BD /* AppDelegate.swift */,
+				F22D1D64209E379200ED6D2B /* AlarmTimer.swift */,
 				F23D9DC820891CEF00E3F6BD /* ViewController.swift */,
-				F23D9DF72089295C00E3F6BD /* NewRecordingViewController.swift */,
 				F23AF0DD208D4C8200F7E757 /* AddAlarmViewController.swift */,
 				F296524B2090E51F002336B0 /* AlarmTableViewController.swift */,
 				F296524D209250D0002336B0 /* DataHolder.swift */,
-				F296524F20925745002336B0 /* CustomAlarmTableViewCell.swift */,
 				1BD1B045209F857B0084CEA5 /* CoreDataHandler.swift */,
+				F296524F20925745002336B0 /* CustomAlarmTableViewCell.swift */,
+				F223427220AA56FC008EEDBC /* AudioTableViewController.swift */,
+				F2BB20F420AACF7F003DBEEE /* CustomAudioTableViewCell.swift */,
+				F23D9DF72089295C00E3F6BD /* NewRecordingViewController.swift */,
 				F23D9DCA20891CEF00E3F6BD /* Main.storyboard */,
 				F23D9DD020891CEF00E3F6BD /* Assets.xcassets */,
 				F23D9DD220891CEF00E3F6BD /* LaunchScreen.storyboard */,
@@ -281,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F23D9DCF20891CEF00E3F6BD /* SleepTalk.xcdatamodeld in Sources */,
+				F223427320AA56FC008EEDBC /* AudioTableViewController.swift in Sources */,
 				1BD1B046209F857B0084CEA5 /* CoreDataHandler.swift in Sources */,
 				F296524C2090E51F002336B0 /* AlarmTableViewController.swift in Sources */,
 				F23D9DC920891CEF00E3F6BD /* ViewController.swift in Sources */,
@@ -288,6 +295,7 @@
 				F296525020925745002336B0 /* CustomAlarmTableViewCell.swift in Sources */,
 				F23D9DF82089295C00E3F6BD /* NewRecordingViewController.swift in Sources */,
 				F296524E209250D0002336B0 /* DataHolder.swift in Sources */,
+				F2BB20F520AACF7F003DBEEE /* CustomAudioTableViewCell.swift in Sources */,
 				F22D1D65209E379200ED6D2B /* AlarmTimer.swift in Sources */,
 				F23D9DC720891CEF00E3F6BD /* AppDelegate.swift in Sources */,
 			);

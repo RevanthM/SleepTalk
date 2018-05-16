@@ -31,6 +31,33 @@ class AudioTableViewController: UIViewController, UITableViewDelegate, UITableVi
 
             return 1
         }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+     
+        
+        audioTableView.delegate = self
+        audioTableView.dataSource = self
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(AudioTableViewController.audioAddTapped))
+        
+        
+    }
+    
+    
+    @objc func audioAddTapped() {
+        alarmclicked = ""
+        
+        
+        print("audio clickedaudio clickedaudio clickedaudio clickedaudio clickedaudio clickedaudio clickedaudio clickedaudio clickedaudio clickedaudio clicked")
+        
+        let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddRecording") as! NewRecordingViewController
+        
+        self.navigationController?.pushViewController(loginVC, animated: true)
+        
+        
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

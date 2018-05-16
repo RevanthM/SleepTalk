@@ -53,7 +53,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ry-Sg-BGj">
-                                                            <rect key="frame" x="290" y="10" width="60" height="50"/>
+                                                            <rect key="frame" x="290" y="14" width="60" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="7Fe-wc-hRa"/>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="VTD-r4-GPG"/>
@@ -68,14 +68,13 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="UFq-IZ-Q1B" secondAttribute="trailing" constant="215" id="3fE-mQ-HGp"/>
-                                                        <constraint firstAttribute="trailing" secondItem="1ry-Sg-BGj" secondAttribute="trailing" constant="25" id="5sN-jT-4Xs"/>
                                                         <constraint firstItem="UFq-IZ-Q1B" firstAttribute="top" secondItem="5Vj-mS-OW1" secondAttribute="top" constant="10" id="FCX-ci-H3K"/>
+                                                        <constraint firstAttribute="trailing" secondItem="1ry-Sg-BGj" secondAttribute="trailing" constant="25" id="J2z-Wv-hdu"/>
                                                         <constraint firstItem="gyD-BE-aBm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5Vj-mS-OW1" secondAttribute="leading" id="Tpr-0o-xaw"/>
-                                                        <constraint firstItem="1ry-Sg-BGj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5Vj-mS-OW1" secondAttribute="leading" constant="20" symbolic="YES" id="Wo0-D1-zue"/>
-                                                        <constraint firstItem="UFq-IZ-Q1B" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5Vj-mS-OW1" secondAttribute="leading" id="ciX-YM-Qkv"/>
+                                                        <constraint firstItem="UFq-IZ-Q1B" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5Vj-mS-OW1" secondAttribute="leading" constant="10" id="ciX-YM-Qkv"/>
                                                         <constraint firstAttribute="trailing" secondItem="gyD-BE-aBm" secondAttribute="trailing" constant="295" id="ct7-Ty-XZh"/>
                                                         <constraint firstItem="gyD-BE-aBm" firstAttribute="top" secondItem="UFq-IZ-Q1B" secondAttribute="bottom" constant="10" id="kYY-7h-UbW"/>
-                                                        <constraint firstItem="1ry-Sg-BGj" firstAttribute="top" secondItem="5Vj-mS-OW1" secondAttribute="top" constant="10" id="ptI-ds-wW4"/>
+                                                        <constraint firstItem="1ry-Sg-BGj" firstAttribute="centerY" secondItem="5Vj-mS-OW1" secondAttribute="centerY" id="pnH-YR-6Hr"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -319,7 +318,7 @@
         <!--AddRecording-->
         <scene sceneID="4m8-dX-662">
             <objects>
-                <viewController id="jJS-X4-zk6" userLabel="AddRecording" customClass="NewRecordingViewController" customModule="SleepTalk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddRecording" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jJS-X4-zk6" userLabel="AddRecording" customClass="NewRecordingViewController" customModule="SleepTalk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B91-Ik-SW8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

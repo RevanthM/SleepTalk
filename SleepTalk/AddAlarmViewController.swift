@@ -340,15 +340,15 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         if component == 0 {
-            return  String(hours[row])
+            return  NSAttributedString(string: hours[row], attributes: [NSAttributedStringKey.foregroundColor : UIColor.white])
         }
         else if component == 1 {
-            return   String(minutes[row])
+            return   NSAttributedString(string: minutes[row], attributes: [NSAttributedStringKey.foregroundColor : UIColor.white])
         }
         else {
-            return   String(ampm[row])
+            return   NSAttributedString(string: ampm[row], attributes: [NSAttributedStringKey.foregroundColor : UIColor.white])
         }
     }
     

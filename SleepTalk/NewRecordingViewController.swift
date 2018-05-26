@@ -40,6 +40,9 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
         
         audioData = fetchAudioData()
        // audioStringArray = fetchAudioStringArray()!
+        
+        navigationController?.navigationBar.barStyle = UIBarStyle.black
+        navigationController?.navigationBar.isTranslucent = false
     }
     
     func check_record_permission()
@@ -150,7 +153,7 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
         if(isRecording)
         {
             finishAudioRecording(success: true)
-            record_btn_ref.setTitle("Record", for: .normal)
+            record_btn_ref.setImage(UIImage(named: "Record.png"), for: UIControlState.normal)
             play_btn_ref.isEnabled = true
             isRecording = false
         }
@@ -160,7 +163,7 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
             
             audioRecorder.record()
             meterTimer = Timer.scheduledTimer(timeInterval: 0.1, target:self, selector:#selector(self.updateAudioMeter(timer:)), userInfo:nil, repeats:true)
-            record_btn_ref.setTitle("Stop", for: .normal)
+            record_btn_ref.setImage(UIImage(named: "FinishRecording.png"), for: UIControlState.normal)
             play_btn_ref.isEnabled = false
             isRecording = true
         }
@@ -224,7 +227,6 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
             audioPlayer.stop()
             audioPlayer.currentTime = 0
             record_btn_ref.isEnabled = true
-            play_btn_ref.setTitle("Play", for: .normal)
             isPlaying = false
         }
         else
@@ -234,7 +236,7 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
             if FileManager.default.fileExists(atPath: tempURL!.path)
             {
                 record_btn_ref.isEnabled = false
-                play_btn_ref.setTitle("Pause", for: .normal)
+                play_btn_ref.setImage(UIImage(named: "PlayGreen.png"), for: UIControlState.normal)
                 play_btn_ref.sizeToFit();
                 prepare_play()
                 audioPlayer.play()
@@ -261,7 +263,7 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
     {
         isPlaying = false
-        play_btn_ref.setTitle("Play", for: .normal)
+        play_btn_ref.setImage(UIImage(named: "PlayGreen.png"), for: UIControlState.normal)
         record_btn_ref.isEnabled = true
     }
     

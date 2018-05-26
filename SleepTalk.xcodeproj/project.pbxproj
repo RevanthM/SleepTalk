@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B816C7F20BA0A0100FFACB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B816C7E20BA0A0000FFACB0 /* Main.storyboard */; };
+		1B816C8120BA0BD400FFACB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B816C8020BA0BD400FFACB0 /* LaunchScreen.storyboard */; };
 		1BD1B046209F857B0084CEA5 /* CoreDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD1B045209F857B0084CEA5 /* CoreDataHandler.swift */; };
 		F223427320AA56FC008EEDBC /* AudioTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F223427220AA56FC008EEDBC /* AudioTableViewController.swift */; };
 		F22D1D65209E379200ED6D2B /* AlarmTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22D1D64209E379200ED6D2B /* AlarmTimer.swift */; };
 		F23AF0DE208D4C8200F7E757 /* AddAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23AF0DD208D4C8200F7E757 /* AddAlarmViewController.swift */; };
 		F23D9DC720891CEF00E3F6BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D9DC620891CEF00E3F6BD /* AppDelegate.swift */; };
 		F23D9DC920891CEF00E3F6BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D9DC820891CEF00E3F6BD /* ViewController.swift */; };
-		F23D9DCC20891CEF00E3F6BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F23D9DCA20891CEF00E3F6BD /* Main.storyboard */; };
 		F23D9DCF20891CEF00E3F6BD /* SleepTalk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F23D9DCD20891CEF00E3F6BD /* SleepTalk.xcdatamodeld */; };
 		F23D9DD120891CEF00E3F6BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F23D9DD020891CEF00E3F6BD /* Assets.xcassets */; };
-		F23D9DD420891CEF00E3F6BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F23D9DD220891CEF00E3F6BD /* LaunchScreen.storyboard */; };
 		F23D9DDF20891CF000E3F6BD /* SleepTalkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D9DDE20891CF000E3F6BD /* SleepTalkTests.swift */; };
 		F23D9DEA20891CF000E3F6BD /* SleepTalkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D9DE920891CF000E3F6BD /* SleepTalkUITests.swift */; };
 		F23D9DF82089295C00E3F6BD /* NewRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23D9DF72089295C00E3F6BD /* NewRecordingViewController.swift */; };
@@ -44,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B816C7E20BA0A0000FFACB0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		1B816C8020BA0BD400FFACB0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BD1B045209F857B0084CEA5 /* CoreDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHandler.swift; sourceTree = "<group>"; };
 		F223427220AA56FC008EEDBC /* AudioTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTableViewController.swift; sourceTree = "<group>"; };
 		F22D1D64209E379200ED6D2B /* AlarmTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTimer.swift; sourceTree = "<group>"; };
@@ -51,10 +53,8 @@
 		F23D9DC320891CEF00E3F6BD /* SleepTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23D9DC620891CEF00E3F6BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F23D9DC820891CEF00E3F6BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F23D9DCB20891CEF00E3F6BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F23D9DCE20891CEF00E3F6BD /* SleepTalk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SleepTalk.xcdatamodel; sourceTree = "<group>"; };
 		F23D9DD020891CEF00E3F6BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F23D9DD320891CEF00E3F6BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F23D9DD520891CEF00E3F6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F23D9DDA20891CF000E3F6BD /* SleepTalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleepTalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F23D9DDE20891CF000E3F6BD /* SleepTalkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTalkTests.swift; sourceTree = "<group>"; };
@@ -128,9 +128,9 @@
 				F223427220AA56FC008EEDBC /* AudioTableViewController.swift */,
 				F2BB20F420AACF7F003DBEEE /* CustomAudioTableViewCell.swift */,
 				F23D9DF72089295C00E3F6BD /* NewRecordingViewController.swift */,
-				F23D9DCA20891CEF00E3F6BD /* Main.storyboard */,
+				1B816C7E20BA0A0000FFACB0 /* Main.storyboard */,
 				F23D9DD020891CEF00E3F6BD /* Assets.xcassets */,
-				F23D9DD220891CEF00E3F6BD /* LaunchScreen.storyboard */,
+				1B816C8020BA0BD400FFACB0 /* LaunchScreen.storyboard */,
 				F23D9DD520891CEF00E3F6BD /* Info.plist */,
 				F23D9DCD20891CEF00E3F6BD /* SleepTalk.xcdatamodeld */,
 			);
@@ -259,9 +259,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F23D9DD420891CEF00E3F6BD /* LaunchScreen.storyboard in Resources */,
 				F23D9DD120891CEF00E3F6BD /* Assets.xcassets in Resources */,
-				F23D9DCC20891CEF00E3F6BD /* Main.storyboard in Resources */,
+				1B816C7F20BA0A0100FFACB0 /* Main.storyboard in Resources */,
+				1B816C8120BA0BD400FFACB0 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,25 +331,6 @@
 			targetProxy = F23D9DE620891CF000E3F6BD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		F23D9DCA20891CEF00E3F6BD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F23D9DCB20891CEF00E3F6BD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		F23D9DD220891CEF00E3F6BD /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F23D9DD320891CEF00E3F6BD /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F23D9DEC20891CF000E3F6BD /* Debug */ = {
@@ -471,7 +452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K2R6W9P99E;
+				DEVELOPMENT_TEAM = 9MF6LAF8FW;
 				INFOPLIST_FILE = SleepTalk/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -490,7 +471,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K2R6W9P99E;
+				DEVELOPMENT_TEAM = 9MF6LAF8FW;
 				INFOPLIST_FILE = SleepTalk/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -41,7 +41,8 @@ class AudioTableViewController: UIViewController, UITableViewDelegate, UITableVi
         audioTableView.dataSource = self
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(AudioTableViewController.audioAddTapped))
-        
+        navigationController?.navigationBar.barStyle = UIBarStyle.black
+        navigationController?.navigationBar.isTranslucent = false
         
     }
     

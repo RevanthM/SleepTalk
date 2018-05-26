@@ -53,6 +53,8 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         alarmTableView.reloadData()
+        
+        alarmTableView.backgroundColor = UIColor.black
     }
     
 
@@ -118,7 +120,8 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
         classAlarmTimer.alarmTimerFunction()
         
         
-        
+        navigationController?.navigationBar.barStyle = UIBarStyle.black
+        navigationController?.navigationBar.isTranslucent = false
         
         /*if (CoreDataHandler.saveObject(audioName: "Test"))
         {

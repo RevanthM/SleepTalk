@@ -15,6 +15,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
 
+    func alarmGoOff( iAlarm:Int?){
+        var date = Date()
+        var calendar = Calendar.current
+        var hour = calendar.component(.hour, from: date)
+        var minutes = calendar.component(.minute, from: date)
+        
+        var AMPMCheck = ""
+        if hour > 12 {
+            AMPMCheck = "PM"
+            hour = hour - 12
+            //      print(hour)
+        } else {
+            AMPMCheck = "AM"
+        }
+        var minuteString = String(minutes)
+        if (minutes < 10)
+        {
+            minuteString = "0" + String(minutes)
+        }
+        let alert = UIAlertController(title: String(hour)+":"+minuteString+":"+AMPMCheck, message:"Alarm", preferredStyle: UIAlertControllerStyle.alert)
+        
+
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        // show the alert
+        self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         

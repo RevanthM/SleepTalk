@@ -19,16 +19,12 @@ class AlarmTimer {
 
 // changing the time interval changes the timer fire duration, for test purposes it's at 2 seconds but it'll be 60 seconds to allow it to cycle through all the arrays.
 
-        alarmTimer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(runAlarmTimer), userInfo: nil, repeats: true)
+        alarmTimer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(runAlarmTimer), userInfo: nil, repeats: true)
 
 
     }
 
     @objc func runAlarmTimer() {
-
-
-
-        print("hi")
 
         // this code here gives the current time... see console for details
         // tutorial used https://stackoverflow.com/questions/24070450/how-to-get-the-current-time-as-datetime
@@ -84,6 +80,26 @@ class AlarmTimer {
         print(selectedMinuteArray)
         print(selectedAMPMArray)
         print(alarmONOFF)
+        
+        print("COUNT: %i", selectedHourArray?.count)
+        if (selectedHourArray!.count > 0)
+        {
+            for i in 0 ... selectedHourArray!.count-1
+            {
+                if hour == selectedHourArray![i]
+                {
+                    if minutes == selectedMinuteArray![i]
+                    {
+                        if AMPMCheck == selectedAMPMArray![i]
+                        {
+                            print("Hit") //hits on alarm i
+                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                            appDelegate.alarmGoOff(iAlarm: i)
+                        }
+                    }
+                }
+            }
+        }
         
         
         

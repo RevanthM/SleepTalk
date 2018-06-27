@@ -8,6 +8,7 @@
 
 import UIKit
 
+var tableTimer: Timer! //checks alarmOnOFF to see if anythign has changed
 // I followed https://www.youtube.com/watch?v=kYmZ-4l0Yy4 this tutorial
 
 // this tutorial establishes memory persistance https://www.youtube.com/watch?v=V9kgI0ebUZ0 
@@ -18,6 +19,7 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var classAlarmTimer = AlarmTimer()
     var audio:[Audio]? = nil
+    var cellArray = [CustomAlarmTableViewCell]()
     @IBOutlet var alarmTableView: UITableView!
     @IBOutlet weak var editButton: UIButton!
     
@@ -55,12 +57,37 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
         alarmTableView.reloadData()
         
         alarmTableView.backgroundColor = UIColor.black
+        
+        tableTimer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(runTableTimer), userInfo: nil, repeats: true)
+    }
+    
+    @objc func runTableTimer()
+    {
+        print("ONOFF: ", alarmONOFF!.count)
+        print("CELLARRAY: ", cellArray.count)
+        if (alarmONOFF!.count > 0) {
+            for i in 0 ... alarmONOFF!.count-1 {
+                if (alarmONOFF![i] == false) {
+                    cellArray[i].alarmSwitchOutlet.setOn(false, animated: true)
+                }
+            }
+        }
     }
     
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       
+        var didAddAlarm = UserDefaults.standard.bool(forKey: "didAddAlarm")
+        
+        if (didAddAlarm == true)
+        {
+            didAddAlarm = false
+            UserDefaults.standard.set(didAddAlarm, forKey: "didAddAlarm")
+            cellArray.removeAll()
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "customAlarmCell") as! CustomAlarmTableViewCell
+        
         
         cell.alarmNameLabel.text = addAlarmTextFieldArray![indexPath.row]
         
@@ -69,6 +96,9 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.alarmSwitchOutlet.tag = indexPath.row
         
         cell.alarmSwitchOutlet.isOn = alarmONOFF![indexPath.row]
+        
+        
+        cellArray.append(cell)
         
 //        //here is programatically switch make to the table view
 //        let switchView = UISwitch(frame: .zero)
@@ -113,7 +143,7 @@ class AlarmTableViewController: UIViewController, UITableViewDelegate, UITableVi
         //alarmTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
          alarmTableView.delegate = self
          alarmTableView.dataSource = self
-        
+        cellArray.removeAll()
         // Do any additional setup after loading the view.
         
         //starts timer

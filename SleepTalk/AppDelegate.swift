@@ -40,6 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // add an action (button)
         alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.cancel, handler: nil))
         
+        alarmONOFF![iAlarm!] = false
+        
         // show the alert
         self.window?.rootViewController?.present(alert, animated: true, completion: nil)
     }

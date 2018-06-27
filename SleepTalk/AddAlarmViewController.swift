@@ -27,8 +27,8 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet var timePickerView: UIPickerView!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var addAlarmTextField: UITextField!
-    
-    
+    var cellArray = [CustomAlarmTableViewCell]()
+    var didAddAlarm = false
     
     var selectedHour = ""
     var selectedMinute = ""
@@ -125,6 +125,7 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         // this doesn't do anything???
         
+        
         if alarmclicked == "" {
         
         if  (addAlarmTextField.text != nil) && addAlarmTextField.text != "" {
@@ -210,6 +211,9 @@ class AddAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             self.navigationController?.popViewController(animated: true)
             
         }
+        didAddAlarm = UserDefaults.standard.bool(forKey: "didAddAlarm")
+        didAddAlarm = true
+        UserDefaults.standard.set(didAddAlarm, forKey: "didAddAlarm")
         
         
     }

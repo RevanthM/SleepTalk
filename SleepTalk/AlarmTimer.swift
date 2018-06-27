@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 var alarmTimer: Timer!
-
+var minuteBasis = false
 
 
 class AlarmTimer {
@@ -19,8 +19,13 @@ class AlarmTimer {
 
 // changing the time interval changes the timer fire duration, for test purposes it's at 2 seconds but it'll be 60 seconds to allow it to cycle through all the arrays.
 
-        alarmTimer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(runAlarmTimer), userInfo: nil, repeats: true)
-
+        if (minuteBasis == false)
+        {
+            alarmTimer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(runAlarmTimer), userInfo: nil, repeats: true)
+        } else if (minuteBasis == true)
+        {
+            alarmTimer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(runAlarmTimer), userInfo: nil, repeats: true)
+        }
 
     }
 
@@ -32,6 +37,7 @@ class AlarmTimer {
         var calendar = Calendar.current
         var hour = calendar.component(.hour, from: date)
         var minutes = calendar.component(.minute, from: date)
+        var seconds = calendar.component(.second, from: date)
         var AMPMCheck = ""
         
         // uncomment the print statements to check if current time works correctly fun fact highlights all the text and then doing cmd+/ will comment out multi-line code blocks
@@ -100,7 +106,17 @@ class AlarmTimer {
                 }
             }
         }
-        
+        print("Seconds: ", seconds)
+        print("Minute Basis: ", minuteBasis)
+        if (minuteBasis == false)
+        {
+            if (seconds >= 0 && seconds < 2)
+            {
+                minuteBasis = true
+                alarmTimer.invalidate()
+                alarmTimer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(runAlarmTimer), userInfo: nil, repeats: true)
+            }
+        }
         
         
     }

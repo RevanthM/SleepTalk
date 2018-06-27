@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import CloudKit
 
 // i followed this tutorial https://stackoverflow.com/questions/26472747/recording-audio-in-swift to incorporate the audio recordings... There are two answers relevent to implementation of swift 3.0 code which I then modified to conform to swift 4.0 standards.
 
@@ -32,7 +33,8 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
     var isPlaying = false
     var audioData:NSData?
     var audioStringArray=[String]()
-    
+    var heldSoundURL = URL(fileURLWithPath: "")
+
     override func viewDidLoad() {
         super.viewDidLoad()
         check_record_permission()
@@ -43,6 +45,7 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
         
         navigationController?.navigationBar.barStyle = UIBarStyle.black
         navigationController?.navigationBar.isTranslucent = false
+        
     }
     
     func check_record_permission()
@@ -72,7 +75,7 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
 
     //generate path where you want to save that recording as myRecording.m4a
     
-    func getDocumentsDirectory() -> URL
+    class func getDocumentsDirectory() -> URL
     {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentsDirectory = paths[0]
@@ -82,11 +85,16 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
     func getFileUrl() -> URL
     {
         let filename = "myRecording.m4a"
-        let filePath = getDocumentsDirectory().appendingPathComponent(filename)
+        let filePath = NewRecordingViewController.getDocumentsDirectory().appendingPathComponent(filename)
         return filePath
     }
     
-    func directoryURL() -> URL {
+    class func getWhistleURL() -> URL {
+        return
+            getDocumentsDirectory().appendingPathComponent("whistle.m4a")
+    }
+    
+    func directoryURL(hold:Bool) -> URL {
         let fileManager = FileManager.default
         let urls = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
         let documentDirectory = urls[0] as NSURL
@@ -98,11 +106,11 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
         dateString.append(".m4a")
         print("Date String:" + dateString)
         audioNameArray!.append(dateString)
-        let soundURL = getDocumentsDirectory().appendingPathComponent(dateString)
-        print("Sound URL:"+soundURL.absoluteString)
-        return soundURL
+        if (hold == true) {
+            heldSoundURL = NewRecordingViewController.getDocumentsDirectory().appendingPathComponent(dateString)
+        }
+        return NewRecordingViewController.getDocumentsDirectory().appendingPathComponent(dateString)
     }
-    
     
     
     
@@ -128,9 +136,9 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
                 
                 
                 unowned let myself = self
-                audioRecorder = try AVAudioRecorder(url: myself.directoryURL(), settings: settings)
-                audioStringArray.append(myself.directoryURL().absoluteString)
-                print("Appended:" + myself.directoryURL().absoluteString)
+                audioRecorder = try AVAudioRecorder(url: directoryURL(hold: true), settings: settings)
+                audioStringArray.append(heldSoundURL.absoluteString)
+                print("Appended:" + heldSoundURL.absoluteString)
                 audioRecorder.delegate = self
                 audioRecorder.isMeteringEnabled = true
                 audioRecorder.prepareToRecord()
@@ -145,8 +153,10 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
         }
     }
 
+
     
     // Start recording when button start_recording press & display seconds using updateAudioMeter, & if recording is start then finish the recording
+    
     
     @IBAction func start_recording(_ sender: UIButton)
     {
@@ -160,7 +170,8 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
         else
         {
             setup_recorder()
-            
+            let audioURL = heldSoundURL
+            print(audioURL.absoluteString)
             audioRecorder.record()
             meterTimer = Timer.scheduledTimer(timeInterval: 0.1, target:self, selector:#selector(self.updateAudioMeter(timer:)), userInfo:nil, repeats:true)
             record_btn_ref.setImage(UIImage(named: "FinishRecording.png"), for: UIControlState.normal)
@@ -283,12 +294,26 @@ class NewRecordingViewController: UIViewController, AVAudioRecorderDelegate, AVA
     // when save is clicked implement core data
     // tutorials for coredata used https://www.youtube.com/watch?v=cL68k-2yINY , https://www.youtube.com/watch?v=3b8P44XdwkQ , https://www.youtube.com/watch?v=Xnqk9nVeU1E
     
-    @IBAction func saveButton(_ sender: UIButton) {
+    @IBAction @objc func saveButton(_ sender: UIButton) {
+        
+        let whistleRecord = CKRecord(recordType: "Whistles")
         
         
+        let audioURL = heldSoundURL
+        let whistleAsset = CKAsset(fileURL: audioURL)
+        whistleRecord["audio"] = whistleAsset
         
-        
-        
+        print(audioURL.absoluteString)
+        CKContainer.default().publicCloudDatabase.save(whistleRecord)
+            
+            
+        { [unowned self] record, error in
+            DispatchQueue.main.async {
+                if let error = error {
+print("Error")
+                }
+            }
+        }
     }
     
     
